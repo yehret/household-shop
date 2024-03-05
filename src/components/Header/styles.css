@@ -1,8 +1,5 @@
 .header {
-   max-width: 1100px;
-   margin: 0 auto;
    padding-top: 1rem;
-   border-bottom: 1px solid #c9c8c7;
 }
 
 .header-content {
@@ -70,6 +67,10 @@
    background-repeat: no-repeat;
    background-size: contain;
    background-position: 50%;
+}
+
+.icon:hover {
+   cursor: pointer;
 }
 
 .icon-link {
