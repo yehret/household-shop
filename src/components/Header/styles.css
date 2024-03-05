@@ -1,0 +1,90 @@
+.header {
+   max-width: 1100px;
+   margin: 0 auto;
+   padding-top: 1rem;
+   border-bottom: 1px solid #c9c8c7;
+}
+
+.header-content {
+   display: flex;
+   justify-content: space-between;
+}
+
+.header-menu {
+   display: flex;
+   align-items: center;
+   font-size: 14px;
+   margin-bottom: 20px;
+}
+
+.header-logo {
+   line-height: 25px;
+}
+
+.header-links {
+   display: inline-flex;
+   border-right: 1px solid #c9c8c7;
+   line-height: 24px;
+}
+
+.link-item {
+   margin-right: 16px;
+}
+
+.header-function {
+   display: inline-flex;
+}
+
+.header-account {
+   margin-left: 16px;
+}
+
+.header-fav {
+   margin-left: 8px;
+}
+
+.header-nav {
+   display: block;
+}
+
+.nav-item {
+   display: inline-block;
+   margin-right: 10px;
+   font-size: 18px;
+   line-height: 28px;
+   box-sizing: content-box;
+   padding: 8px 0;
+   margin-right: 20px;
+}
+
+.nav-search {
+   margin-right: 0;
+   display: inline-flex;
+   float: right;
+}
+
+.icon {
+   display: inline-flex;
+   height: 24px;
+   width: 24px;
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: 50%;
+}
+
+.icon-link {
+   overflow: hidden;
+   text-indent: -1000px;
+}
+
+.account-icon {
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cpath%20d=%27M35.1%2013a11%2011%200%201%201-22%200%2011%2011%200%200%201%2022%200ZM2%2042.3C2%2035.1%2016.7%2031%2024%2031s22.2%204%2022.2%2011.4v3.7H1.9v-3.7Z%27%20style=%27fill%3Anone;stroke%3A%23333;stroke-miterlimit%3A7.759;stroke-width%3A2px%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.fav-icon {
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cpath%20d=%27M34.6%204.6c-4.2%200-8.3%202-10.6%205.2a13.5%2013.5%200%200%200-10.6-5.2%2012%2012%200%200%200-12%2012c0%2011%2013.7%2021.2%2021.8%2026.3l.8.5.8-.5c8.1-5.1%2021.9-15.4%2021.9-26.3a12%2012%200%200%200-12.1-12Z%27%20style=%27fill%3Anone;stroke%3A%23333;stroke-miterlimit%3A2;stroke-width%3A2px%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.search-icon {
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%23333;stroke-linecap%3Around;stroke-miterlimit%3A7.759;stroke-width%3A2px%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ccircle%20class=%27cls-1%27%20cx=%2717.7%27%20cy=%2717.5%27%20r=%2715.2%27%2F%3E%3Cpath%20class=%27cls-1%27%20d=%27M45.5%2045.5%2028.4%2028.4%27%2F%3E%3C%2Fsvg%3E");
+}
