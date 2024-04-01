@@ -1,0 +1,6 @@
+.cards-wrapper {
+   display: grid;
+   grid-template-columns: repeat(12,[col-start] 1fr);
+   min-height: 10rem;
+   position: relative;
+}

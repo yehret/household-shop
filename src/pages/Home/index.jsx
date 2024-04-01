@@ -8,11 +8,11 @@ const Home = () => {
         <h1 className="title">Каталог товарів по категоріям</h1>
       </div>
       <div className="category-cards-wrapper">
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
-        <CategoryCard />
+        <CategoryCard categoryName={'kitchen'} />
+        <CategoryCard categoryName={'kitchen'} />
+        <CategoryCard categoryName={'kitchen'} />
+        <CategoryCard categoryName={'kitchen'} />
+        <CategoryCard categoryName={'kitchen'} />
       </div>
     </section>
   );
