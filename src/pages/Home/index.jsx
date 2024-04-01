@@ -1,5 +1,5 @@
 import './styles.css';
-import Card from '../../components/Card';
+import CategoryCard from '../../components/CategoryCard';
 
 const Home = () => {
   return (
@@ -7,12 +7,12 @@ const Home = () => {
       <div>
         <h1 className="title">Каталог товарів по категоріям</h1>
       </div>
-      <div className="cards-wrapper">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+      <div className="category-cards-wrapper">
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
+        <CategoryCard />
       </div>
     </section>
   );

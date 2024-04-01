@@ -42,16 +42,21 @@
 
 .header-nav {
    display: block;
+   border-bottom: 1px solid #c9c8c7;
 }
 
 .nav-item {
    display: inline-block;
-   margin-right: 10px;
    font-size: 18px;
    line-height: 28px;
    box-sizing: content-box;
    padding: 8px 0;
-   margin-right: 20px;
+   margin-right: 25px;
+   border-bottom: 1px solid transparent;
+}
+
+.category-item:hover {
+   border-bottom: 1px solid #5d5c5b;
 }
 
 .nav-search {

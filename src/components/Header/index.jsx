@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Header = () => {
@@ -12,11 +13,11 @@ const Header = () => {
           </div>
           <div className="header-menu">
             <div className="header-links">
-              <a className="link-item">Контакти</a>
+              <Link className="link-item">Контакти</Link>
             </div>
             <div className="header-function">
-              <div className="header-account icon icon-link account-icon">Користувач</div>
-              <div className="header-fav icon icon-link fav-icon">Улюблені</div>
+              <Link className="header-account icon icon-link account-icon">Користувач</Link>
+              <Link className="header-fav icon icon-link fav-icon">Улюблені</Link>
             </div>
           </div>
         </div>
@@ -24,9 +25,9 @@ const Header = () => {
           <div className="nav-search nav-item icon search-icon">&nbsp;</div>
           {categories.map((categoryName, index) => {
             return (
-              <div key={index} className="nav-item">
+              <Link key={index} className="category-item nav-item">
                 {categoryName}
-              </div>
+              </Link>
             );
           })}
         </div>

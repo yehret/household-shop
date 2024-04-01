@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
-const Card = () => {
+const CategoryCard = () => {
   return (
     <div className="card">
-      <a href="/" title="Сторінка категорії">
+      <Link to="/" title="Сторінка категорії">
         <img
           src="https://www.stockphotosecrets.com/wp-content/uploads/2021/06/photocase_photo_id_3236595_square-550x550.jpg"
           alt="Card"
@@ -13,9 +14,9 @@ const Card = () => {
             <strong>Назва категорії</strong>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
 
-export default Card;
+export default CategoryCard;

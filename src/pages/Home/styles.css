@@ -1,9 +1,9 @@
 .title {
-   margin: 40px 0;
+   margin: 45px 0;
    font-size: 25px;
 }
 
-.cards-wrapper {
+.category-cards-wrapper {
    display: grid; 
    grid-template-columns: repeat(2, 1fr);
    grid-auto-rows: 420px;
