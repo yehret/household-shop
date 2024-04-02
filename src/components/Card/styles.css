@@ -40,4 +40,30 @@
    width: 22px;
 }
 
+.item-card_title {
+   margin-top: .5rem;
+   width: 100%;
+   overflow: hidden;
+   padding: 0 .25rem;
+}
+
+.item-card_brand-name {
+   font-size: 14px;
+   font-weight: 700;
+}
+
+.item-card_brand-item {
+   margin-top: 2px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 100%;
+}
+
+.item-card_details {
+   margin-top: .3rem;
+   padding: 0 .25rem;
+   font-size: 18px;
+}
+
 

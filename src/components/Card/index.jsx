@@ -10,8 +10,11 @@ const Card = () => {
           alt=""
         />
       </div>
-      <div className="item-card_title">Назва товару</div>
-      <div className="item-card_details">ціна товару</div>
+      <div className="item-card_title">
+        <div className="item-card_brand-name">Назва бренду</div>
+        <div className="item-card_brand-item">Назва товару</div>
+      </div>
+      <div className="item-card_details">₴ціна</div>
       <div className="addToWishlist" title="Додати в улюблені">
         <span className="icon-heart"></span>
       </div>
