@@ -1,45 +1,28 @@
 .item-card {
-   border-radius: 3px;
-   color: #333;
-   display: inline-flex;
-   flex-direction: column;
-   margin: .1rem .1rem .6rem;
-   padding: .5rem .5rem 1rem;
-   position: relative;
    width: 100%;
+   padding: .5rem .5rem 1rem;
+   margin: .1rem .1rem .6rem;
+   position: relative;
    transition: all .15s ease-in-out;
-
-   grid-column:  span 3;
 }
 
-.item-card_img {
+.item-card_img{
+   position: relative;
    background: #fafafa 0 0 no-repeat padding-box;
    padding-bottom: 120%;
-   position: relative;
 }
 
 .item-card_img img {
-   left: 0;
-   /* mix-blend-mode: multiply; */
-   padding: 2.625em 1em;
    position: absolute;
+   left: 0;
    top: 0;
    width: 100%;
+   box-sizing: border-box;
+   padding: 2.625em 1em;
 }
 
-.item-card_title {
-   margin-top: .5rem;
-   overflow: hidden;
-   padding: 0 .25rem;
-   width: 100%;
-
-   display: block;
-   text-overflow: ellipsis;
-   white-space: nowrap;
+.item-card:hover {
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.item-card_price {
-   margin-top: .3rem;
-   padding: 0 .25rem;
-   white-space: normal;
-}
+

@@ -10,8 +10,8 @@ const Card = () => {
           alt=""
         />
       </div>
-      <div className="item-card_title">Title</div>
-      <div className="item-card_details">price</div>
+      <div className="item-card_title">Назва товару</div>
+      <div className="item-card_details">ціна товару</div>
     </Link>
   );
 };

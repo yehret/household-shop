@@ -1,6 +1,10 @@
+/* .cards-wrapper {
+   display: flex;
+   flex-wrap: wrap;
+} */
+
 .cards-wrapper {
    display: grid;
-   grid-template-columns: repeat(12,[col-start] 1fr);
-   min-height: 10rem;
-   position: relative;
+   grid-template-columns: repeat(4, 1fr);
+   grid-gap: 15px;
 }
