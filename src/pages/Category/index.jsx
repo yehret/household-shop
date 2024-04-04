@@ -7,6 +7,14 @@ const Category = () => {
       <div>
         <h1 className="title">category name</h1>
       </div>
+      <div className="sort-section_head">
+        <div className="sort-section">
+          <span>Сортувати за: </span>
+          <span className="sort-button" onClick>
+            Ціна
+          </span>
+        </div>
+      </div>
       <div className="cards-wrapper">
         <Card />
         <Card />
