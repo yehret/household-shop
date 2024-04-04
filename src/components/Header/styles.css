@@ -24,6 +24,11 @@
    line-height: 24px;
 }
 
+.header-links:hover {
+   text-decoration: underline;
+   text-underline-offset: 5px;
+}
+
 .link-item {
    margin-right: 16px;
 }
