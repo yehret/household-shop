@@ -2,9 +2,12 @@ import './styles.css';
 
 const Product = () => {
   return (
-    <section>
+    <section className="product-wrapper">
       <div>
-        <h1 className="title">Каталог товарів по категоріям</h1>
+        <div>
+          <div className="product-gallery">photos</div>
+          <div className="product-details">product details</div>
+        </div>
       </div>
     </section>
   );

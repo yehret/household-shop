@@ -1,0 +1,16 @@
+.product-wrapper {
+   margin-top: 50px;
+}
+
+.product-gallery {
+   float: left;
+   width: 48%;
+   margin-right: 4%;
+   box-sizing: border-box;
+}
+
+.product-details {
+   float: left;
+   width: 48%;
+   box-sizing: border-box;
+}
