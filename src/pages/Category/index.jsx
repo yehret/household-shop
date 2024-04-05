@@ -9,10 +9,11 @@ const Category = () => {
       </div>
       <div className="sort-section_head">
         <div className="sort-section">
-          <span>Сортувати за: </span>
-          <span className="sort-button" onClick>
-            Ціна
-          </span>
+          <div className="sort-title">Сортувати за: </div>
+          <div className="sort-button-wrapper">
+            <span className="sb-title">Ціна</span>
+            <span className="icon sb_icon sb_icon_img"></span>
+          </div>
         </div>
       </div>
       <div className="cards-wrapper">

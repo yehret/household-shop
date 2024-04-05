@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './styles.css';
 
 const Card = () => {
+  const { pathname } = useLocation();
   return (
-    <Link className="item-card">
+    <Link to={`${pathname}/productId`} className="item-card">
       <div className="item-card_img">
         <img
           src="https://img.freepik.com/premium-wektory/slodki-chomik-w-stylu-pixel-art_475147-1281.jpg?w=360"

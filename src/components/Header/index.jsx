@@ -9,7 +9,7 @@ const Header = () => {
       <div>
         <div className="header-content">
           <div className="header-logo">
-            <a href="./">Лого</a>
+            <Link to={'/'}>Лого</Link>
           </div>
           <div className="header-menu">
             <div className="header-links">
