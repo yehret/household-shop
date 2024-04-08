@@ -2,8 +2,12 @@
    margin-top: 50px;
 }
 
+.product-wrapper>div {
+   display: flex;
+}
+
 .product-gallery {
-   float: left;
+   /* float: left; */
    width: 48%;
    margin-right: 4%;
    box-sizing: border-box;
@@ -14,7 +18,7 @@
 }
 
 .product-details {
-   float: left;
+   /* float: left; */
    width: 48%;
    box-sizing: border-box;
 }
@@ -154,4 +158,70 @@
    width: 28px;
    background-repeat: no-repeat;
    background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cpath%20d=%27M34.6%204.6c-4.2%200-8.3%202-10.6%205.2a13.5%2013.5%200%200%200-10.6-5.2%2012%2012%200%200%200-12%2012c0%2011%2013.7%2021.2%2021.8%2026.3l.8.5.8-.5c8.1-5.1%2021.9-15.4%2021.9-26.3a12%2012%200%200%200-12.1-12Z%27%20style=%27fill%3Anone;stroke%3A%2341a561;stroke-miterlimit%3A2;stroke-width%3A2px%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.accordion {
+   border-bottom: 1px solid #c9c8c7;
+   border-top: 1px solid #c9c8c7;
+}
+
+.accordion__item {
+   border-bottom: 1px solid #c9c8c7;
+   margin-bottom: 0;
+   box-sizing: border-box;
+}
+
+.accordion__item:last-child {
+   border: none;
+}
+
+.accordion__item.active .accordion__item__title {
+   box-shadow: 0 .5rem 1rem -1rem rgba(0,0,0,.3)
+}
+
+.accordion__item__title {
+   align-items: center;
+   background-color: #fff;
+   box-sizing: border-box;
+   cursor: pointer;
+   display: flex;
+   font-size: 1rem;
+   font-weight: 400;
+   justify-content: space-between;
+   line-height: 1;
+   margin: 0;
+   min-height: 48px;
+   padding: 0 8px 0 0;
+   position: sticky;
+   top: 0;
+   z-index: 10;
+}
+
+.icon-plus {
+   height: 22px;
+   width: 22px;
+   transition: all 128ms cubic-bezier(1, .5, .5, 1);
+   background-repeat: no-repeat;
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%232faebe;stroke-linecap%3Around;stroke-miterlimit%3A7.759;stroke-width%3A2px%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpath%20class=%27cls-1%27%20d=%27M1.8%2024h44.4M24%2046.2V1.8%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.accordion__item__content {
+   box-sizing: border-box;
+   height: 0;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+}
+
+.accordion__item.active .accordion__item__content {
+   padding: 32px 0;
+   height: auto;
+}
+
+.accordion__item.active .accordion__item__title .icon {
+   transform: rotate(45deg);
+}
+
+.text {
+   line-height: 1.8;
 }
