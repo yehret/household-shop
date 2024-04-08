@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Category from './pages/Category';
 import Product from './pages/Product';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path=":categoryname" element={<Category />} />
         <Route path=":categoryname/:productId" element={<Product />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
