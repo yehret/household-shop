@@ -5,3 +5,65 @@
 .wishlist-empty {
    text-align: center;
 }
+
+.wishlist-item__wrapper {
+   display: flex;
+   padding: 1rem 0;
+   border-bottom: 1px solid #c9c8c7;
+}
+
+.wishlist-item__wrapper:last-child {
+   border: none;
+}
+
+.wishlist-item__image {
+   flex: 0 0 200px;
+   margin-right: 1rem;
+}
+
+.wishlist-item__details {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.wishlist-item__title {
+   width: fit-content;
+   font-weight: 700;
+   font-size: 18px;
+   color: inherit;
+}
+
+.wishlist-item__date {
+   margin: .5rem 0;
+}
+
+.wishlist-item__buttons-wrapper {
+   display: flex;
+}
+
+.icon-remove {
+   height: 24px;
+   width: 24px;
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-2%7Bfill%3Anone;stroke%3A%23db4840;stroke-miterlimit%3A10;stroke-width%3A2px;stroke-linecap%3Around%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpath%20d=%27M10.6%207H39v34.3c0%202.7-2.2%204.8-4.8%204.8h-19a4.8%204.8%200%200%201-4.7-4.8V7Z%27%20style=%27fill%3Anone;stroke%3A%23db4840;stroke-miterlimit%3A10;stroke-width%3A2px%27%2F%3E%3Cpath%20class=%27cls-2%27%20d=%27M6.8%206.9h36M17.5%206.5C17.5%204%2019.5%202%2022%202h5.4c2.6%200%204.7%202%204.7%204.6M20.7%2017.8V38M29%2017.8V38%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.wishlist-item__remove-title {
+   display: block;
+   height: 100%;
+   padding: 0 2rem 0 1rem;
+   text-align: center;
+}
+
+.wishlist-item__remove {
+   display: flex;
+   align-items: center;
+   border: 1px solid #c9c8c7;
+   border-radius: 2px;
+   justify-content: flex-start;
+   margin-left: 1rem;
+   padding-left: .5rem;
+   cursor: pointer;
+   height: 48px;
+   line-height: 48px;
+}
