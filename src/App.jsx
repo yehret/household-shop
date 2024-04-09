@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Category from './pages/Category';
 import Product from './pages/Product';
 import Footer from './components/Footer';
+import Favourites from './pages/Favourites';
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
-        <Route path=":categoryname" element={<Category />} />
-        <Route path=":categoryname/:productId" element={<Product />} />
+        <Route path="/:categoryname" element={<Category />} />
+        <Route path="/:categoryname/:productId" element={<Product />} />
+        <Route path="/favourites" element={<Favourites />} />
       </Routes>
       <Footer />
     </BrowserRouter>
