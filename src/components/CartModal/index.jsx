@@ -1,13 +1,16 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
-const CartModal = () => {
+const CartModal = ({ setIsOpen, isOpen }) => {
   return (
     <>
       <section className="cart-modal__full-screen">
         <div>
           <div>
-            <div className="cart-modal__header">Лого</div>
-            <div className="cart-modal__back-button">
+            <div onClick={() => setIsOpen(!isOpen)} className="cart-modal__header">
+              Лого
+            </div>
+            <div onClick={() => setIsOpen(!isOpen)} className="cart-modal__back-button">
               <i className="icon icon-return"></i>
               <span>Повернутись назад</span>
             </div>
@@ -17,9 +20,9 @@ const CartModal = () => {
               <div className="cart-modal__empty-cart">
                 <p>Ваш кошик порожній.</p>
                 <p>Ніколи не пізно це виправити :)</p>
-                <button to={'/'} className="cart-button">
+                <Link to={'/'} onClick={() => setIsOpen(!isOpen)} className="cart-button">
                   Переглянути каталог товарів
-                </button>
+                </Link>
               </div>
             </div>
           </div>

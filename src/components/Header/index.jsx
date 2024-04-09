@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import './styles.css';
 import CartModal from '../CartModal';
+import { useState } from 'react';
 
 const Header = () => {
   const categories = ['Категорія1', 'Категорія2', 'Категорія3'];
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <CartModal />
+      {isOpen && <CartModal isOpen={isOpen} setIsOpen={setIsOpen} />}
       <header className="header">
         <div>
           <div className="header-content">
@@ -23,7 +25,7 @@ const Header = () => {
                 <Link to="/favourites" className="header-fav">
                   <span className="icon icon-link fav-icon">Улюблені</span>
                 </Link>
-                <Link to="/checkout" className="header-cart">
+                <Link onClick={() => setIsOpen(!isOpen)} className="header-cart">
                   <span className="icon icon-link cart-icon">Кошик</span>
                 </Link>
               </div>
