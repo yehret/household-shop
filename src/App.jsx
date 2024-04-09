@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Category from './pages/Category';
 import Product from './pages/Product';
 import Footer from './components/Footer';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path=":categoryname" element={<Category />} />
         <Route path=":categoryname/:productId" element={<Product />} />
+        <Route path="checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </BrowserRouter>

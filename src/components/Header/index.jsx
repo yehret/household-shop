@@ -17,7 +17,12 @@ const Header = () => {
             </div>
             <div className="header-function">
               <Link className="header-account icon icon-link account-icon">Користувач</Link>
-              <Link className="header-fav icon icon-link fav-icon">Улюблені</Link>
+              <Link to="/favourites" className="header-fav">
+                <span className="icon icon-link fav-icon">Улюблені</span>
+              </Link>
+              <Link to="/checkout" className="header-cart">
+                <span className="icon icon-link cart-icon">Кошик</span>
+              </Link>
             </div>
           </div>
         </div>
