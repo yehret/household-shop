@@ -21,7 +21,9 @@ const Header = () => {
                 <Link className="link-item">Контакти</Link>
               </div>
               <div className="header-function">
-                <Link className="header-account icon icon-link account-icon">Користувач</Link>
+                <Link to="/profile" className="header-account icon icon-link account-icon">
+                  Користувач
+                </Link>
                 <Link to="/favourites" className="header-fav">
                   <span className="icon icon-link fav-icon">Улюблені</span>
                 </Link>
