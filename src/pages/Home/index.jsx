@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <section>
       <div>
-        <h1 className="title">Каталог товарів по категоріям</h1>
+        <h1 className="title">Каталог товарів за категоріями</h1>
       </div>
       <div className="category-cards-wrapper">
         <CategoryCard categoryName={'kitchen'} />

@@ -3,8 +3,9 @@ import './styles.css';
 import CartModal from '../CartModal';
 import { useState } from 'react';
 
+const categories = ['Категорія1', 'Категорія2', 'Категорія3'];
+
 const Header = () => {
-  const categories = ['Категорія1', 'Категорія2', 'Категорія3'];
   const [isOpen, setIsOpen] = useState(false);
 
   return (
