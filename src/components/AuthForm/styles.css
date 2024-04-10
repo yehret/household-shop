@@ -124,3 +124,17 @@ h3 {
 .registernow-button:hover {
    border: 1.5px solid #333;
 }
+
+.form-list__multi-item {
+   display: flex;
+   max-width: unset;
+   width: 100%;
+}
+
+.form-list__multi-item div {
+   width: calc(50% - .25rem);
+}
+
+.form-list__multi-item div+div {
+   margin-left: .5rem;
+}
