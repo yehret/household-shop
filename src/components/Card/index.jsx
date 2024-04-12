@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import './styles.css';
 
-const Card = () => {
+const Card = ({ name, price }) => {
   const { pathname } = useLocation();
   return (
     <Link to={`${pathname}/productId`} className="item-card">
@@ -13,9 +13,9 @@ const Card = () => {
       </div>
       <div className="item-card_title">
         <div className="item-card_brand-name">Назва бренду</div>
-        <div className="item-card_brand-item">Назва товару</div>
+        <div className="item-card_brand-item">{name}</div>
       </div>
-      <div className="item-card_details">₴ціна</div>
+      <div className="item-card_details">₴{price}</div>
       <div className="addToWishlist" title="Додати в улюблені">
         <span className="icon-heart"></span>
       </div>

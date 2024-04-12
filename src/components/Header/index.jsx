@@ -58,7 +58,10 @@ const Header = () => {
             <div className="nav-search nav-item icon search-icon">&nbsp;</div>
             {capitalizedCategories.map((category) => {
               return (
-                <Link key={category._id} className="category-item nav-item">
+                <Link
+                  to={`/${category.name.toLowerCase()}`}
+                  key={category._id}
+                  className="category-item nav-item">
                   {category.name}
                 </Link>
               );

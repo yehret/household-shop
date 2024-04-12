@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import './styles.css';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 const Category = () => {
+  const [products, setProducts] = useState([]);
   const { pathname } = useLocation();
   const categoryTitle = pathname.charAt(1).toUpperCase() + pathname.slice(2);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8800/api/products${pathname}`);
+        setProducts(res.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchProducts();
+  }, [pathname]);
+
+  console.log(products);
 
   return (
     <section>
@@ -21,15 +39,9 @@ const Category = () => {
         </div>
       </div>
       <div className="cards-wrapper">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {products.map((card) => {
+          return <Card key={card._id} name={card.name} price={card.price} />;
+        })}
       </div>
     </section>
   );
