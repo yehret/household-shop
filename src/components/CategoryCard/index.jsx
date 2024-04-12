@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const CategoryCard = ({ categoryName }) => {
+  const path = categoryName.toLowerCase();
   return (
     <div className="card">
-      <Link to={`${categoryName}`} title="Сторінка категорії">
+      <Link to={`${path}`} title="Сторінка категорії">
         <img
           src="https://www.stockphotosecrets.com/wp-content/uploads/2021/06/photocase_photo_id_3236595_square-550x550.jpg"
           alt="Card"
         />
         <div className="overlay-wrapper">
           <div className="overlay">
-            <strong>Назва категорії</strong>
+            <strong>{categoryName}</strong>
           </div>
         </div>
       </Link>

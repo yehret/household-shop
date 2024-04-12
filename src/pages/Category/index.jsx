@@ -1,11 +1,15 @@
 import Card from '../../components/Card';
 import './styles.css';
+import { useLocation } from 'react-router-dom';
 
 const Category = () => {
+  const { pathname } = useLocation();
+  const categoryTitle = pathname.charAt(1).toUpperCase() + pathname.slice(2);
+
   return (
     <section>
       <div>
-        <h1 className="title">category name</h1>
+        <h1 className="title">{categoryTitle}</h1>
       </div>
       <div className="sort-section_head">
         <div className="sort-section">

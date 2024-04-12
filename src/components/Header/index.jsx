@@ -1,12 +1,32 @@
 import { Link } from 'react-router-dom';
 import './styles.css';
 import CartModal from '../CartModal';
-import { useState } from 'react';
-
-const categories = ['Категорія1', 'Категорія2', 'Категорія3'];
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await axios.get('http://localhost:8800/api/categories');
+        setCategories(res.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  let capitalizedCategories = categories.map((obj) => {
+    return {
+      ...obj,
+      name: obj.name.charAt(0).toUpperCase() + obj.name.slice(1),
+    };
+  });
 
   return (
     <>
@@ -36,10 +56,10 @@ const Header = () => {
           </div>
           <div className="header-nav">
             <div className="nav-search nav-item icon search-icon">&nbsp;</div>
-            {categories.map((categoryName, index) => {
+            {capitalizedCategories.map((category) => {
               return (
-                <Link key={index} className="category-item nav-item">
-                  {categoryName}
+                <Link key={category._id} className="category-item nav-item">
+                  {category.name}
                 </Link>
               );
             })}
