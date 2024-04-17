@@ -138,3 +138,29 @@ h3 {
 .form-list__multi-item div+div {
    margin-left: .5rem;
 }
+
+.icon-eye {
+   height: 16px;
+   width: 16px;
+   color: #c9c8c7;
+   cursor: pointer;
+   position: absolute;
+   right: 8px;
+   top: 12px;
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%23333;stroke-linecap%3Around;stroke-miterlimit%3A10;stroke-width%3A2px%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpath%20class=%27cls-1%27%20d=%27M1.9%2024.5s20.9%2026%2044.2%200c0%200-20.7-26.3-44.2%200Z%27%2F%3E%3Ccircle%20class=%27cls-1%27%20cx=%2724%27%20cy=%2724.5%27%20r=%273.2%27%2F%3E%3Cpath%20class=%27cls-1%27%20d=%27M1.9%2024.5S24%206%2046%2024.5%27%2F%3E%3Cpath%20class=%27cls-1%27%20d=%27M33.3%2017.5a11.6%2011.6%200%200%201%202.3%207A11.6%2011.6%200%201%201%2014.3%2018M3.6%204.3l39.9%2039.9%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.passwordcontainer {
+   position: relative;
+}
+
+.icon-eye-visible {
+   height: 16px;
+   width: 16px;
+   color: #c9c8c7;
+   cursor: pointer;
+   position: absolute;
+   right: 8px;
+   top: 12px;
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%23333;stroke-linecap%3Around;stroke-miterlimit%3A10;stroke-width%3A2px%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpath%20class=%27cls-1%27%20d=%27M1.9%2024S22.8%2050%2046%2024c0%200-20.7-26.2-44.2%200Z%27%2F%3E%3Ccircle%20class=%27cls-1%27%20cx=%2724%27%20cy=%2724.1%27%20r=%273.2%27%2F%3E%3Cpath%20class=%27cls-1%27%20d=%27M1.9%2024S24%205.8%2046%2024%27%2F%3E%3Cpath%20class=%27cls-1%27%20d=%27M33.3%2017a11.6%2011.6%200%200%201%202.3%207%2011.6%2011.6%200%201%201-21.3-6.4%27%2F%3E%3C%2Fsvg%3E");
+}

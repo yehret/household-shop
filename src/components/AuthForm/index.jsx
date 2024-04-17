@@ -7,7 +7,7 @@ const AuthForm = () => {
   return (
     <section className="account-login">
       {isRegister ? (
-        <SigninForm setIsRegister={setIsRegister} />
+        <RegisterForm setIsRegister={setIsRegister} />
       ) : (
         <LoginForm setIsRegister={setIsRegister} />
       )}
@@ -63,7 +63,23 @@ const LoginForm = ({ setIsRegister }) => {
   );
 };
 
-const SigninForm = ({ setIsRegister }) => {
+const RegisterForm = ({ setIsRegister }) => {
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [middlename, setMiddlename] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('+38');
+  const [password, setPassword] = useState('123');
+  const [showPassword, setShowPassword] = useState(false);
+
+  //   const handleRegister = async (e) => {
+  //       try {
+  //          e.preventDefault();
+  //       } catch (error) {
+  //          console.log(error);
+  //       }
+  //   }
+
   return (
     <div>
       <div>
@@ -76,37 +92,73 @@ const SigninForm = ({ setIsRegister }) => {
               <div className="form-list__multi-item">
                 <div className="form-list__item">
                   <label htmlFor="Firstname">Ім`я</label>
-                  <input type="text" name="Firstname" />
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    type="text"
+                    name="Firstname"
+                  />
                 </div>
                 <div className="form-list__item">
                   <label htmlFor="Lastname">Прізвище</label>
-                  <input type="text" name="Lastname" />
+                  <input
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                    type="text"
+                    name="Lastname"
+                  />
                 </div>
               </div>
               <div className="form-list__item">
+                <label htmlFor="Middlename">По батькові</label>
+                <input
+                  value={middlename}
+                  onChange={(e) => setMiddlename(e.target.value)}
+                  type="text"
+                  name="Middlename"
+                />
+              </div>
+              <div className="form-list__item">
                 <label htmlFor="Email">Ел. пошта</label>
-                <input type="text" name="Email" />
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  name="Email"
+                />
               </div>
               <div className="form-list__item">
                 <label htmlFor="Phone">Номер телефону</label>
-                <input value={'+38'} type="tel" name="Phone" />
+                <input
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  type="tel"
+                  name="Phone"
+                />
               </div>
               <div className="form-list__item">
                 <label htmlFor="Password">Пароль</label>
                 <div className="passwordcontainer">
-                  {/* <span className="icon icon-eye"></span> */}
-                  <input type="password" name="Password" />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className={`icon ${showPassword ? 'icon-eye-visible' : 'icon-eye'}`}></span>
+                  <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type={showPassword ? 'text' : 'password'}
+                    name="Password"
+                  />
                 </div>
               </div>
-              <div className="form-list__item">
+              {/* <div className="form-list__item">
                 <label htmlFor="Password">Повторіть пароль</label>
                 <div className="passwordcontainer">
-                  {/* <span className="icon icon-eye"></span> */}
+                  <span className="icon icon-eye"></span>
                   <input type="password" name="Password" />
                 </div>
-              </div>
+              </div> */}
             </form>
-            <button className="login-button">Увійти</button>
+            <button className="login-button">Зареєструватись</button>
           </div>
           <div className="registration-block">
             <h3>Вже маєте обліковий запис?</h3>
