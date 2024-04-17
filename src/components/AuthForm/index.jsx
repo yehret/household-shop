@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import './styles.css';
+import { useDispatch } from 'react-redux';
+import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AuthForm = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -16,6 +20,28 @@ const AuthForm = () => {
 };
 
 const LoginForm = ({ setIsRegister }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    dispatch(loginStart());
+    try {
+      const res = await axios.post(
+        'http://localhost:8800/api/auth/signin',
+        { email, password },
+        { withCredentials: true, credentials: 'include' },
+      );
+      dispatch(loginSuccess(res.data));
+      navigate('/');
+    } catch (error) {
+      dispatch(loginFailure());
+    }
+  };
+
   return (
     <div>
       <div>
@@ -28,17 +54,31 @@ const LoginForm = ({ setIsRegister }) => {
             <form className="form-list">
               <div className="form-list__item">
                 <label htmlFor="Email">Ел. пошта</label>
-                <input type="text" name="Email" />
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  name="Email"
+                />
               </div>
               <div className="form-list__item">
                 <label htmlFor="Password">Пароль</label>
                 <div className="passwordcontainer">
-                  {/* <span className="icon icon-eye"></span> */}
-                  <input type="password" name="Password" />
+                  <span
+                    onClick={() => setShowPassword(!showPassword)}
+                    className={`icon ${showPassword ? 'icon-eye-visible' : 'icon-eye'}`}></span>
+                  <input
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    type={showPassword ? 'text' : 'password'}
+                    name="Password"
+                  />
                 </div>
               </div>
             </form>
-            <button className="login-button">Увійти</button>
+            <button onClick={handleLogin} className="login-button">
+              Увійти
+            </button>
           </div>
           <div className="registration-block">
             <h3>Ще не маєте облікового запису?</h3>
@@ -64,6 +104,8 @@ const LoginForm = ({ setIsRegister }) => {
 };
 
 const RegisterForm = ({ setIsRegister }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [middlename, setMiddlename] = useState('');
@@ -72,13 +114,25 @@ const RegisterForm = ({ setIsRegister }) => {
   const [password, setPassword] = useState('123');
   const [showPassword, setShowPassword] = useState(false);
 
-  //   const handleRegister = async (e) => {
-  //       try {
-  //          e.preventDefault();
-  //       } catch (error) {
-  //          console.log(error);
-  //       }
-  //   }
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    dispatch(loginStart());
+    try {
+      const res = await axios.post('http://localhost:8800/api/auth/signup', {
+        name,
+        surname,
+        middlename,
+        email,
+        phoneNumber,
+        password,
+      });
+      dispatch(loginSuccess(res.data));
+      navigate('/');
+    } catch (error) {
+      dispatch(loginFailure());
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -158,7 +212,9 @@ const RegisterForm = ({ setIsRegister }) => {
                 </div>
               </div> */}
             </form>
-            <button className="login-button">Зареєструватись</button>
+            <button onClick={handleRegister} className="login-button">
+              Зареєструватись
+            </button>
           </div>
           <div className="registration-block">
             <h3>Вже маєте обліковий запис?</h3>
