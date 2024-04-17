@@ -1,6 +1,51 @@
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/userSlice';
 
-const UserActions = () => {
+const UserActions = ({ currentUser }) => {
+  const [userStatus, setUserStatus] = useState({});
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  console.log(currentUser);
+
+  console.log(userStatus);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userRes = await axios.get(
+          `http://localhost:8800/api/users/checkuser/${currentUser._id}`,
+          {
+            withCredentials: true,
+            credentials: 'include',
+          },
+        );
+
+        setUserStatus(userRes.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getUser();
+  }, [currentUser]);
+
+  const handleLogout = async () => {
+    try {
+      await axios.get('http://localhost:8800/api/users/logout', {
+        withCredentials: true,
+        credentials: 'include',
+      });
+
+      dispatch(logout());
+      navigate('/');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section>
       <div>
@@ -36,7 +81,7 @@ const UserActions = () => {
               <span className="icon icon-arrow"></span>
             </div>
           </Link>
-          <Link className="account-section__link">
+          <Link onClick={handleLogout} className="account-section__link">
             <div>Вийти</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>

@@ -118,14 +118,18 @@ const RegisterForm = ({ setIsRegister }) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post('http://localhost:8800/api/auth/signup', {
-        name,
-        surname,
-        middlename,
-        email,
-        phoneNumber,
-        password,
-      });
+      const res = await axios.post(
+        'http://localhost:8800/api/auth/signup',
+        {
+          name,
+          surname,
+          middlename,
+          email,
+          phoneNumber,
+          password,
+        },
+        { withCredentials: true, credentials: 'include' },
+      );
       dispatch(loginSuccess(res.data));
       navigate('/');
     } catch (error) {
