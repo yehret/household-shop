@@ -1,4 +1,6 @@
 const ProductInfo = () => {
+  const handleFavourite = () => {};
+
   return (
     <section className="product-wrapper">
       <div>
@@ -49,7 +51,7 @@ const ProductInfo = () => {
             </div>
             <div className="addToWishlistButton">
               <div className="addtowithlist">
-                <span className="icon icon-wishlist"></span>
+                <span onClick={handleFavourite} className="icon icon-wishlist"></span>
               </div>
             </div>
           </div>

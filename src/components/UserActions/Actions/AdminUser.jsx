@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 
-const UserActions = () => {
+const AdminUser = ({ handleLogout }) => {
   return (
     <section>
       <div>
-        <h1>Адмін-панель</h1>
         <div className="account-section">
-          <h2 className="account-section__header">Ваші замовлення</h2>
+          <h2 className="account-section__header">Адмін-панель</h2>
           <Link className="account-section__link">
             <div>Замовлення</div>
             <div className="account-section-arrow">
@@ -14,30 +13,18 @@ const UserActions = () => {
             </div>
           </Link>
           <Link className="account-section__link">
-            <div>Відгуки</div>
-            <div className="account-section-arrow">
-              <span className="icon icon-arrow"></span>
-            </div>
-          </Link>
-        </div>
-        <div className="account-section">
-          <h2 className="account-section__header">Ваші дані</h2>
-          <Link className="account-section__link">
-            <div>Особисті дані</div>
-            <div className="account-section-arrow">
-              <span className="icon icon-arrow"></span>
-            </div>
-          </Link>
-        </div>
-        <div className="account-section">
-          <h2 className="account-section__header">Ваш обліковий запис</h2>
-          <Link className="account-section__link">
-            <div>Видалити акаунт</div>
+            <div>Додати категорію</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
             </div>
           </Link>
           <Link className="account-section__link">
+            <div>Додати товар</div>
+            <div className="account-section-arrow">
+              <span className="icon icon-arrow"></span>
+            </div>
+          </Link>
+          <Link onClick={handleLogout} className="account-section__link">
             <div>Вийти</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
@@ -49,4 +36,4 @@ const UserActions = () => {
   );
 };
 
-export default UserActions;
+export default AdminUser;

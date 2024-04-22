@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const WishlistItem = () => {
+const WishlistItem = ({ favourite }) => {
   return (
     <div className="wishlist-item__wrapper">
       <div className="wishlist-item__image">
@@ -12,9 +12,9 @@ const WishlistItem = () => {
         </Link>
       </div>
       <div className="wishlist-item__details">
-        <Link className="wishlist-item__title">Назва бренду - Назва товару</Link>
-        <strong className="wishlist-item__pricetag">$Ціна товару</strong>
-        <div className="wishlist-item__date">Додано: дата</div>
+        <Link className="wishlist-item__title">Назва бренду - {favourite.name}</Link>
+        <strong className="wishlist-item__pricetag">Ціна: ${favourite.price}</strong>
+        <div className="wishlist-item__date"></div>
         <div className="wishlist-item__buttons-wrapper">
           <button className="addtocart">Додати у кошик</button>
           <div className="wishlist-item__remove">

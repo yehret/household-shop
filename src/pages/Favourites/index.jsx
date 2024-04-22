@@ -1,19 +1,43 @@
 import { Link } from 'react-router-dom';
 import './styles.css';
 import WishlistItem from '../../components/WishlistItem';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Favourites = () => {
+  const [favourites, setFavourites] = useState([]);
+
+  useEffect(() => {
+    const fetchFavourites = async () => {
+      try {
+        const favouritesRes = await axios.get('http://localhost:8800/api/products/favourites', {
+          withCredentials: true,
+          credentials: 'include',
+        });
+
+        setFavourites(favouritesRes.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchFavourites();
+  }, []);
+
   return (
     <section>
       <div>
         <h1 className="title">Список бажань</h1>
         <div className="wishlist">
-          <div>
-            <WishlistItem />
-            <WishlistItem />
-            <WishlistItem />
-          </div>
-          <WishlistEmpty />
+          {favourites.length > 0 ? (
+            <div>
+              {favourites.map((favItem) => (
+                <WishlistItem key={favItem._id} favourite={favItem} />
+              ))}
+            </div>
+          ) : (
+            <WishlistEmpty />
+          )}
         </div>
       </div>
     </section>

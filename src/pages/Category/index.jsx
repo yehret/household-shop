@@ -12,7 +12,7 @@ const Category = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/products${pathname}`);
+        const res = await axios.get(`http://localhost:8800/api/products/category${pathname}`);
         setProducts(res.data);
       } catch (error) {
         console.log(error.message);

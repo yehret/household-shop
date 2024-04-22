@@ -26,6 +26,14 @@ export const userSlice = createSlice({
          state.loading = false;
          state.error= false;
       },
+      favourite: (state, action) => {
+         if(state.currentUser.favourites.includes(action.payload)){
+            state.currentUser.favourites.splice(state.currentUser.favourites.findIndex(productId => productId === action.payload), 1)
+         }
+         else {
+            state.currentUser.favourites.push(action.payload)
+         }
+      }
    }
 })
 
