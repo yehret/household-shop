@@ -12,13 +12,13 @@ const AdminUser = ({ handleLogout }) => {
               <span className="icon icon-arrow"></span>
             </div>
           </Link>
-          <Link className="account-section__link">
+          <Link to="/customer-area/add-category" className="account-section__link">
             <div>Додати категорію</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
             </div>
           </Link>
-          <Link className="account-section__link">
+          <Link to="/customer-area/add-product" className="account-section__link">
             <div>Додати товар</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>

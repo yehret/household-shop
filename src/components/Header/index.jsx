@@ -42,7 +42,7 @@ const Header = () => {
                 <Link className="link-item">Контакти</Link>
               </div>
               <div className="header-function">
-                <Link to="/profile" className="header-account icon icon-link account-icon">
+                <Link to="/customer-area" className="header-account icon icon-link account-icon">
                   Користувач
                 </Link>
                 <Link to="/favourites" className="header-fav">
