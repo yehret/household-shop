@@ -33,7 +33,11 @@ const Home = () => {
       </div>
       <div className="category-cards-wrapper">
         {capitalizedCategories.map((category) => (
-          <CategoryCard key={category._id} categoryName={category.name} />
+          <CategoryCard
+            key={category._id}
+            categoryName={category.name}
+            categoryImg={category.imgURL}
+          />
         ))}
       </div>
     </section>

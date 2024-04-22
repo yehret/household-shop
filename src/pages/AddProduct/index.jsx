@@ -8,6 +8,8 @@ const AddProduct = () => {
   const [quantity, setQuantity] = useState('');
   const [img, setImg] = useState(undefined);
 
+  console.log(img);
+
   return (
     <section>
       <div>
@@ -22,9 +24,7 @@ const AddProduct = () => {
                     <option value disabled="disabled">
                       Виберіть категорію
                     </option>
-                    <option value="Категорія 1" selected="selected">
-                      Категорія1
-                    </option>
+                    <option value="Категорія 1">Категорія1</option>
                     <option value="Категорія 1">Категорія2</option>
                   </select>
                 </div>
@@ -86,6 +86,7 @@ const AddProduct = () => {
               <button className="addproduct">Додати товар</button>
             </div>
             <div className="addimage-block">
+              <h3>Додати картинку товару</h3>
               <input
                 className="addimage"
                 onChange={(e) => setImg(e.target.files[0])}

@@ -2,13 +2,17 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const CategoryCard = ({ categoryName }) => {
+const CategoryCard = ({ categoryName, categoryImg }) => {
   const path = categoryName.toLowerCase();
   return (
     <div className="card">
       <Link to={`${path}`} title="Сторінка категорії">
         <img
-          src="https://www.stockphotosecrets.com/wp-content/uploads/2021/06/photocase_photo_id_3236595_square-550x550.jpg"
+          src={
+            categoryImg
+              ? categoryImg
+              : 'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/blurred-gray-background-brandon-bourdages.jpg'
+          }
           alt="Card"
         />
         <div className="overlay-wrapper">
