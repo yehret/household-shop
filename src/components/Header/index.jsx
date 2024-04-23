@@ -3,6 +3,7 @@ import './styles.css';
 import CartModal from '../CartModal';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import cyrillicToTranslit from 'cyrillic-to-translit-js';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +60,9 @@ const Header = () => {
             {capitalizedCategories.map((category) => {
               return (
                 <Link
-                  to={`/${category.name.toLowerCase()}`}
+                  to={`/${cyrillicToTranslit({ preset: 'uk' }).transform(
+                    category.name.toLowerCase(),
+                  )}`}
                   key={category._id}
                   className="category-item nav-item">
                   {category.name}

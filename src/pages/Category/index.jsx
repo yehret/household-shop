@@ -3,6 +3,7 @@ import Card from '../../components/Card';
 import './styles.css';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import cyrillicToTranslit from 'cyrillic-to-translit-js';
 
 const Category = () => {
   const [products, setProducts] = useState([]);
@@ -22,12 +23,10 @@ const Category = () => {
     fetchProducts();
   }, [pathname]);
 
-  console.log(products);
-
   return (
     <section>
       <div>
-        <h1 className="title">{categoryTitle}</h1>
+        <h1 className="title">{cyrillicToTranslit({ preset: 'uk' }).reverse(categoryTitle)}</h1>
       </div>
       <div className="sort-section_head">
         <div className="sort-section">

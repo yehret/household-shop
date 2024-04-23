@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './styles.css';
+import cyrillicToTranslit from 'cyrillic-to-translit-js';
 
 const CategoryCard = ({ categoryName, categoryImg }) => {
   const path = categoryName.toLowerCase();
+
+  //   console.log(cyrillicToTranslit({ preset: 'uk' }).transform('категорія'));
+  //   console.log(cyrillicToTranslit({ preset: 'uk' }).reverse('katehoriia'));
+
   return (
     <div className="card">
-      <Link to={`${path}`} title="Сторінка категорії">
+      <Link
+        to={`${cyrillicToTranslit({ preset: 'uk' }).transform(path)}`}
+        title="Сторінка категорії">
         <img
           src={
             categoryImg
