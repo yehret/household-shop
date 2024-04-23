@@ -6,7 +6,7 @@ const Card = ({ card }) => {
   return (
     <Link to={`${pathname}/${card._id}`} className="item-card">
       <div className="item-card_img">
-        <img src={card?.imgURL} alt={card.name} />
+        <img src={card?.imageURL} alt={card.name} />
       </div>
       <div className="item-card_title">
         <div className="item-card_brand-name">{card.brandname}</div>

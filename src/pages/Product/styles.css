@@ -150,7 +150,7 @@
    width: 3rem;
 }
 
-.addtowithlist {
+.addtowishlist {
    width: 100%;
    height: 100%;
    padding-top: 9px;
@@ -166,6 +166,13 @@
    width: 28px;
    background-repeat: no-repeat;
    background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cpath%20d=%27M34.6%204.6c-4.2%200-8.3%202-10.6%205.2a13.5%2013.5%200%200%200-10.6-5.2%2012%2012%200%200%200-12%2012c0%2011%2013.7%2021.2%2021.8%2026.3l.8.5.8-.5c8.1-5.1%2021.9-15.4%2021.9-26.3a12%2012%200%200%200-12.1-12Z%27%20style=%27fill%3Anone;stroke%3A%2341a561;stroke-miterlimit%3A2;stroke-width%3A2px%27%2F%3E%3C%2Fsvg%3E");
+}
+
+.icon-unwishlist {
+   height: 28px;
+   width: 28px;
+   background-repeat: no-repeat;
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cpath%20d=%27M34.6%204.6c-4.2%200-8.3%202-10.6%205.2a13.5%2013.5%200%200%200-10.6-5.2%2012%2012%200%200%200-12%2012c0%2011%2013.7%2021.2%2021.8%2026.3l.8.5.8-.5c8.1-5.1%2021.9-15.4%2021.9-26.3a12%2012%200%200%200-12.1-12Z%27%20style=%27fill%3A%2341a561;stroke%3A%2341a561;stroke-miterlimit%3A2;stroke-width%3A2px%27%2F%3E%3C%2Fsvg%3E") !important;
 }
 
 .accordion {

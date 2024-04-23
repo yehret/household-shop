@@ -10,7 +10,7 @@ const AddProduct = () => {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
   const [img, setImg] = useState(undefined);
-  const [imgURL, setImgURL] = useState('');
+  const [imageURL, setImgURL] = useState('');
   const [imgPerc, setImgPerc] = useState(0);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
@@ -85,7 +85,7 @@ const AddProduct = () => {
       await axios.post(`products`, {
         name,
         brandname,
-        imgURL,
+        imageURL,
         price,
         quantity,
         description,
@@ -186,15 +186,15 @@ const AddProduct = () => {
               <h3>Додати картинку товару</h3>
               {imgPerc > 0 && imgPerc != 100
                 ? 'Uploading:' + imgPerc + '%'
-                : !imgURL && (
+                : !imageURL && (
                     <input
                       className="addimage"
                       onChange={(e) => setImg(e.target.files[0])}
                       type="file"
                       accept="image/*"></input>
                   )}
-              {imgURL ? <img className="img-preview" src={imgURL} alt="category pic" /> : <></>}
-              {imgURL && (
+              {imageURL ? <img className="img-preview" src={imageURL} alt="category pic" /> : <></>}
+              {imageURL && (
                 <button className="addproduct" onClick={clearImgFields}>
                   Очистити
                 </button>
