@@ -1,7 +1,7 @@
 import './styles.css';
 import CategoryCard from '../../components/CategoryCard';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axios';
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get('http://localhost:8800/api/categories');
+        const res = await axios.get('categories');
         setCategories(res.data);
       } catch (error) {
         console.log(error.message);

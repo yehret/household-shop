@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import './styles.css';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../utils/axios';
 import cyrillicToTranslit from 'cyrillic-to-translit-js';
 
 const Category = () => {
@@ -13,7 +13,7 @@ const Category = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:8800/api/products/category${pathname}`);
+        const res = await axios.get(`products/category${pathname}`);
         setProducts(res.data);
       } catch (error) {
         console.log(error.message);

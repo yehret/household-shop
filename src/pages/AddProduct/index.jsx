@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../utils/axios';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { useEffect, useState } from 'react';
 import app from '../../../firebase';
@@ -32,7 +32,7 @@ const AddProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categRes = await axios.get('http://localhost:8800/api/categories');
+        const categRes = await axios.get('categories');
         setCategories(categRes.data);
       } catch (error) {
         console.log(error);
@@ -82,13 +82,15 @@ const AddProduct = () => {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        `http://localhost:8800/api/products`,
-        { name, brandname, imgURL, price, quantity, description, category },
-        {
-          withCredentials: true,
-        },
-      );
+      await axios.post(`products`, {
+        name,
+        brandname,
+        imgURL,
+        price,
+        quantity,
+        description,
+        category,
+      });
 
       clearImgFields();
       clearFields();

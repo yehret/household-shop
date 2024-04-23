@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles.css';
 import { useDispatch } from 'react-redux';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice';
-import axios from 'axios';
+import axios from '../../utils/axios';
 import { useNavigate } from 'react-router-dom';
 
 const AuthForm = () => {
@@ -30,11 +30,7 @@ const LoginForm = ({ setIsRegister }) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post(
-        'http://localhost:8800/api/auth/signin',
-        { email, password },
-        { withCredentials: true, credentials: 'include' },
-      );
+      const res = await axios.post('auth/signin', { email, password });
       dispatch(loginSuccess(res.data));
       navigate('/');
     } catch (error) {
@@ -118,18 +114,14 @@ const RegisterForm = ({ setIsRegister }) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post(
-        'http://localhost:8800/api/auth/signup',
-        {
-          name,
-          surname,
-          middlename,
-          email,
-          phoneNumber,
-          password,
-        },
-        { withCredentials: true, credentials: 'include' },
-      );
+      const res = await axios.post('auth/signup', {
+        name,
+        surname,
+        middlename,
+        email,
+        phoneNumber,
+        password,
+      });
       dispatch(loginSuccess(res.data));
       navigate('/');
     } catch (error) {

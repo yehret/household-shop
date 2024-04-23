@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../../utils/axios';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,13 +14,7 @@ const UserActions = ({ currentUser }) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const userRes = await axios.get(
-          `http://localhost:8800/api/users/checkuser/${currentUser._id}`,
-          {
-            withCredentials: true,
-            credentials: 'include',
-          },
-        );
+        const userRes = await axios.get(`users/checkuser/${currentUser._id}`);
 
         setUserStatus(userRes.data);
       } catch (error) {
@@ -33,7 +27,7 @@ const UserActions = ({ currentUser }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('http://localhost:8800/api/users/logout', {
+      await axios.get('users/logout', {
         withCredentials: true,
         credentials: 'include',
       });

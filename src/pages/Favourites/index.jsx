@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 import WishlistItem from '../../components/WishlistItem';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axios';
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
@@ -10,10 +10,7 @@ const Favourites = () => {
   useEffect(() => {
     const fetchFavourites = async () => {
       try {
-        const favouritesRes = await axios.get('http://localhost:8800/api/products/favourites', {
-          withCredentials: true,
-          credentials: 'include',
-        });
+        const favouritesRes = await axios.get('products/favourites');
 
         setFavourites(favouritesRes.data);
       } catch (error) {

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 import CartModal from '../CartModal';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axios';
 import cyrillicToTranslit from 'cyrillic-to-translit-js';
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get('http://localhost:8800/api/categories');
+        const res = await axios.get('categories');
         setCategories(res.data);
       } catch (error) {
         console.log(error.message);

@@ -4,7 +4,7 @@ import './styles.css';
 const Card = ({ card }) => {
   const { pathname } = useLocation();
   return (
-    <Link to={`${pathname}/productId`} className="item-card">
+    <Link to={`${pathname}/${card._id}`} className="item-card">
       <div className="item-card_img">
         <img src={card?.imgURL} alt={card.name} />
       </div>

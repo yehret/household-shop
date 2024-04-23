@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../../utils/axios.js';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import app from '../../../firebase.js';
 
@@ -55,13 +55,7 @@ const AddCategory = () => {
   const handleUpload = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        `http://localhost:8800/api/categories`,
-        { name, imgURL },
-        {
-          withCredentials: true,
-        },
-      );
+      await axios.post(`categories`, { name, imgURL });
 
       clearImgFields();
       setCategoryName('');
