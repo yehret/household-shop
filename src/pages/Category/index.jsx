@@ -39,7 +39,7 @@ const Category = () => {
       </div>
       <div className="cards-wrapper">
         {products.map((card) => {
-          return <Card key={card._id} name={card.name} price={card.price} />;
+          return <Card key={card._id} card={card} />;
         })}
       </div>
     </section>
