@@ -21,24 +21,27 @@ const CartModal = ({ setIsOpen, isOpen }) => {
               <span>Повернутись назад</span>
             </div>
           </div>
-          <div className="cart-wrapper">
-            <div className="cart-list">
-              <h2>Ваш кошик (n)</h2>
-              <div>
-                <div className="itemList arrowborder">
-                  {orderStack.map((cartItem, index) => (
-                    <CartItem key={index} itemData={cartItem} />
-                  ))}
+          {orderStack.length > 0 ? (
+            <div className="cart-wrapper">
+              <div className="cart-list">
+                <h2>Ваш кошик ({orderStack.length})</h2>
+                <div>
+                  <div className="itemList arrowborder">
+                    {orderStack.map((cartItem, index) => (
+                      <CartItem key={index} itemData={cartItem} />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="cartlist-details">
+                <div className="cartlist-block">
+                  <div className="cartlist-details_summary">Сума замовлення</div>
                 </div>
               </div>
             </div>
-            <div className="cartlist-details">
-              <div className="cartlist-block">
-                <div className="cartlist-details_summary">Сума замовлення</div>
-              </div>
-            </div>
-          </div>
-          <EmptyCart setIsOpen={setIsOpen} isOpen={isOpen} />
+          ) : (
+            <EmptyCart setIsOpen={setIsOpen} isOpen={isOpen} />
+          )}
         </div>
         <Footer />
       </section>

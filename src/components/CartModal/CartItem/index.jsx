@@ -1,7 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { removeItem } from '../../../redux/cartSlice';
 
 const CartItem = ({ itemData }) => {
   const [quantity, setQuantity] = useState(itemData.quantityOrder);
+  const dispatch = useDispatch();
+
+  const handleRemoveFromCart = () => {
+    dispatch(removeItem(itemData._id));
+  };
+
   return (
     <div className="itemRow_item">
       <div className="itemRow_item-image">
@@ -31,7 +39,9 @@ const CartItem = ({ itemData }) => {
             </div>
           </div>
           <div className="itemRow_upper-right">
-            <span className="icon icon-delete-product">&nbsp;</span>
+            <span onClick={handleRemoveFromCart} className="icon icon-delete-product">
+              &nbsp;
+            </span>
           </div>
         </div>
         <div className="itemRow_lower-details">

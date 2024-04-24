@@ -31,10 +31,6 @@ const ProductInfo = ({ productData }) => {
     dispatch(addToCart(productData));
   };
 
-  const showQuantity = (productId, orderStack) => {
-    return orderStack.find((item) => item._id === productId).quantityOrder;
-  };
-
   return (
     <section className="product-wrapper">
       <div>
@@ -93,7 +89,7 @@ const ProductInfo = ({ productData }) => {
           <div className="product-cart">
             <div className="addToCartButton">
               <button onClick={handleAddToCart} className="addtocart">
-                Додати у кошик ({showQuantity(productData._id, orderStack)})
+                Додати у кошик
               </button>
             </div>
             {currentUser?.favourites?.includes(productData._id) ? (

@@ -40,10 +40,10 @@
 }
 
 .cart-modal__wrapper {
-   margin-top: 2rem;
+   margin-top: 5rem;
    display: flex;
    justify-content: center;
-   margin-bottom: 3rem;
+   margin-bottom: 8rem;
 }
 
 .cart-modal__empty-cart {

@@ -20,7 +20,7 @@ export const cartSlice = createSlice({
           }
       },
       removeItem(state, action) {
-         state.orderStack = state.orderStack.filter(item => item.productId !== action.payload.productId);
+         state.orderStack = state.orderStack.filter(item => item._id !== action.payload);
       },
       clearCart: (state) => {
          state.orderStack = [];
