@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import Footer from '../Footer';
 import './styles.css';
 import CartItem from './CartItem';
+import { useSelector } from 'react-redux';
 
 const CartModal = ({ setIsOpen, isOpen }) => {
+  const { orderStack } = useSelector((state) => state.cart);
+  console.log(orderStack);
+
   return (
     <>
       <section className="cart-modal__full-screen">
@@ -22,9 +26,9 @@ const CartModal = ({ setIsOpen, isOpen }) => {
               <h2>Ваш кошик (n)</h2>
               <div>
                 <div className="itemList arrowborder">
-                  <CartItem />
-                  <CartItem />
-                  <CartItem />
+                  {orderStack.map((cartItem, index) => (
+                    <CartItem key={index} itemData={cartItem} />
+                  ))}
                 </div>
               </div>
             </div>

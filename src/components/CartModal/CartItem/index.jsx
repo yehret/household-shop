@@ -1,27 +1,33 @@
-const CartItem = () => {
+import { useState } from 'react';
+
+const CartItem = ({ itemData }) => {
+  const [quantity, setQuantity] = useState(itemData.quantityOrder);
   return (
     <div className="itemRow_item">
       <div className="itemRow_item-image">
         <a>
           <img
-            src="https://cdn.connox.com/m/100106/569511/media/andtradition/AW2020-2021/andTradition-Flowerpot-Akku-Tischleuchte-VP9-grau-beige.jpg"
-            alt="img"
+            src={
+              itemData.imageURL ||
+              'https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/blurred-gray-background-brandon-bourdages.jpg'
+            }
+            alt={itemData.name}
           />
         </a>
       </div>
       <div className="itemRow_item-details">
         <div className="itemRow_upper-details">
           <div className="itemRow_upper-left">
-            <a>Brand name - Product Name</a>
+            <a>
+              {itemData.brandname} - {itemData.name}
+            </a>
             <div>
-              <select>
-                <option value="1" selected>
-                  1
-                </option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-              </select>
+              <input
+                type="number"
+                value={quantity}
+                name="Quantity"
+                onChange={(e) => setQuantity(e.target.value)}
+              />
             </div>
           </div>
           <div className="itemRow_upper-right">
@@ -34,7 +40,8 @@ const CartItem = () => {
           </div>
           <div className="itemRow_lower-right">
             <strong className="order-price">
-              <span className="details-price-tag">₴</span>150
+              <span className="details-price-tag">₴</span>
+              {itemData.price}
             </strong>
           </div>
         </div>

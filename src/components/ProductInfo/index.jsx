@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import axios from '../../utils/axios';
 import { favourite } from '../../redux/userSlice';
+import { addToCart } from '../../redux/cartSlice';
 
 const ProductInfo = ({ productData }) => {
   const { currentUser } = useSelector((state) => state.user);
+  const { orderStack } = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
-  console.log(currentUser);
 
   const handleFavourite = async () => {
     try {
@@ -23,6 +25,14 @@ const ProductInfo = ({ productData }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(productData));
+  };
+
+  const showQuantity = (productId, orderStack) => {
+    return orderStack.find((item) => item._id === productId).quantityOrder;
   };
 
   return (
@@ -82,7 +92,9 @@ const ProductInfo = ({ productData }) => {
           </div>
           <div className="product-cart">
             <div className="addToCartButton">
-              <button className="addtocart">Додати у кошик</button>
+              <button onClick={handleAddToCart} className="addtocart">
+                Додати у кошик ({showQuantity(productData._id, orderStack)})
+              </button>
             </div>
             {currentUser?.favourites?.includes(productData._id) ? (
               <div className="addToWishlistButton">

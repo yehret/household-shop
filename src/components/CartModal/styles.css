@@ -151,16 +151,24 @@ p {
    flex: 1 0 186px;
 }
 
-.itemRow_item-details select {
-   width: 70px;
+.itemRow_item-details input {
+   width: 35px;
+   padding-right: 0.6em;
+   font-size: 16px;
    text-indent: 10px;
    display: block;
    margin-top: .5em;
    margin-bottom: .5em;
    height: 34px;
    border: solid 1px #c9c8c7;
+   outline-color: #c9c8c7;
    border-radius: 2px;
    text-align: center;
+}
+
+.itemRow_item-details input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
 }
 
 .itemRow_upper-right {

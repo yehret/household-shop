@@ -4,8 +4,10 @@ import CartModal from '../CartModal';
 import { useEffect, useState } from 'react';
 import axios from '../../utils/axios';
 import cyrillicToTranslit from 'cyrillic-to-translit-js';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const { orderStack } = useSelector((state) => state.cart);
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
 
@@ -50,6 +52,7 @@ const Header = () => {
                   <span className="icon icon-link fav-icon">Улюблені</span>
                 </Link>
                 <Link onClick={() => setIsOpen(!isOpen)} className="header-cart">
+                  <span className="icon icon-badge-green">{orderStack.length}</span>
                   <span className="icon icon-link cart-icon">Кошик</span>
                 </Link>
               </div>

@@ -108,3 +108,21 @@
 .search-icon {
    background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%23333;stroke-linecap%3Around;stroke-miterlimit%3A7.759;stroke-width%3A2px%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ccircle%20class=%27cls-1%27%20cx=%2717.7%27%20cy=%2717.5%27%20r=%2715.2%27%2F%3E%3Cpath%20class=%27cls-1%27%20d=%27M45.5%2045.5%2028.4%2028.4%27%2F%3E%3C%2Fsvg%3E");
 }
+
+
+.icon-badge-green {
+   background-color: #41a561;
+   border-radius: 7px;
+   color: #fff;
+   display: block;
+   font-size: 10px;
+   font-weight: 700;
+   height: 14px;
+   line-height: 13px;
+   position: absolute;
+   right: -4px;
+   text-align: center;
+   top: -2px;
+   width: 14px;
+   z-index: 2;
+}
