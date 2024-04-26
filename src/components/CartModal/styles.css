@@ -153,9 +153,8 @@ p {
 
 .itemRow_item-details input {
    width: 35px;
-   padding-right: 0.6em;
    font-size: 16px;
-   text-indent: 10px;
+   /* text-indent: 10px; */
    display: block;
    margin-top: .5em;
    margin-bottom: .5em;
@@ -225,4 +224,25 @@ p {
    padding: 1em;
    width: 100%;
    line-height: 1.6;
+}
+
+.icon-plus-value {
+   height: 22px;
+   width: 22px;
+   margin-left: 0.5rem;
+   background-image: url("data:image/svg+xml;utf-8,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%23000000;stroke-linecap%3Around;stroke-miterlimit%3A7.759;stroke-width%3A2px%7D%3C/style%3E%3C/defs%3E%3Cpath%20class=%27cls-1%27%20d=%27M1.8%2024h44.4M24%2046.2V1.8%27/%3E%3C/svg%3E");
+}
+
+.icon-minus-value {
+   margin-right: 0.5rem;
+   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3QgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNTYiIHdpZHRoPSIyNTYiLz48bGluZSBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI4IiB4MT0iNDAiIHgyPSIyMTYiIHkxPSIxMjgiIHkyPSIxMjgiLz48L3N2Zz4=');
+}
+
+.icon-quantity {
+   fill: var(--global-black-20);
+}
+
+.quantity-block {
+   display: flex;
+   align-items: center;
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeItem } from '../../../redux/cartSlice';
+import { addQuantity, minusQuantity, removeItem } from '../../../redux/cartSlice';
 
 const CartItem = ({ itemData }) => {
   const [quantity, setQuantity] = useState(itemData.quantityOrder);
@@ -8,6 +8,16 @@ const CartItem = ({ itemData }) => {
 
   const handleRemoveFromCart = () => {
     dispatch(removeItem(itemData._id));
+  };
+
+  const handleDecrement = () => {
+    dispatch(minusQuantity(itemData._id));
+    setQuantity(quantity - 1);
+  };
+
+  const handleIncrement = () => {
+    dispatch(addQuantity(itemData._id));
+    setQuantity(quantity + 1);
   };
 
   return (
@@ -29,13 +39,19 @@ const CartItem = ({ itemData }) => {
             <a>
               {itemData.brandname} - {itemData.name}
             </a>
-            <div>
+            <div className="quantity-block">
+              <span onClick={handleDecrement} className="icon icon-minus-value">
+                &nbsp;
+              </span>
               <input
                 type="number"
                 value={quantity}
                 name="Quantity"
                 onChange={(e) => setQuantity(e.target.value)}
               />
+              <span onClick={handleIncrement} className="icon icon-plus-value">
+                &nbsp;
+              </span>
             </div>
           </div>
           <div className="itemRow_upper-right">
@@ -51,7 +67,7 @@ const CartItem = ({ itemData }) => {
           <div className="itemRow_lower-right">
             <strong className="order-price">
               <span className="details-price-tag">₴</span>
-              {itemData.price}
+              {itemData.price * quantity}
             </strong>
           </div>
         </div>

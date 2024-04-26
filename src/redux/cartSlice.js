@@ -19,15 +19,27 @@ export const cartSlice = createSlice({
             state.orderStack = [...state.orderStack, { ...newCartItem, quantityOrder: 1 }];
           }
       },
-      removeItem(state, action) {
+      removeItem: (state, action) => {
          state.orderStack = state.orderStack.filter(item => item._id !== action.payload);
       },
       clearCart: (state) => {
          state.orderStack = [];
+      },
+      addQuantity: (state, action) => {
+         const existingItemIndex = state.orderStack.findIndex(item => item._id === action.payload);
+         if (existingItemIndex !== -1) {
+            state.orderStack[existingItemIndex].quantityOrder++;
+          }
+      },
+      minusQuantity: (state, action) => {
+         const existingItemIndex = state.orderStack.findIndex(item => item._id === action.payload);
+         if (existingItemIndex !== -1) {
+            state.orderStack[existingItemIndex].quantityOrder--;
+          }
       }
    }
 })
 
-export const {addToCart, removeItem, clearCart} = cartSlice.actions
+export const {addToCart, removeItem, clearCart, addQuantity, minusQuantity} = cartSlice.actions
 
 export default cartSlice.reducer
