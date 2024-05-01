@@ -51,7 +51,11 @@ const Home = () => {
       <div>
         <h1 className="title">Каталог товарів за категоріями</h1>
       </div>
-      {isError ? <NotFound /> : <div className="category-cards-wrapper">{renderCategories()}</div>}
+      {isError ? (
+        <NotFound type={'categories'} />
+      ) : (
+        <div className="category-cards-wrapper">{renderCategories()}</div>
+      )}
     </section>
   );
 };

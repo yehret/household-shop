@@ -1,10 +1,20 @@
 import './styles.css';
 
-const NotFound = () => {
+const NotFound = ({ type }) => {
+  let errorTypeText;
+  switch (type) {
+    case 'categories':
+      errorTypeText = 'категорії';
+      break;
+    case 'products':
+      errorTypeText = 'товари';
+      break;
+  }
+
   return (
     <div className="content__error-info">
       <h2>Виникла помилка 😕</h2>
-      <p>Невдалося знайти категорії. Спробуйте пізніше</p>
+      <p>Невдалося знайти {errorTypeText}. Спробуйте пізніше</p>
     </div>
   );
 };
