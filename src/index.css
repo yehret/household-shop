@@ -51,3 +51,9 @@ footer>div {
 .Image-module_loaded {
    opacity: 1;
 }
+
+.content__error-info {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

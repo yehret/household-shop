@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from '../../utils/axios.js';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import app from '../../../firebase.js';
+import { useDispatch } from 'react-redux';
 
 const AddCategory = () => {
   const [name, setCategoryName] = useState('');
   const [img, setImg] = useState(undefined);
   const [imgURL, setImgURL] = useState('');
   const [imgPerc, setImgPerc] = useState(0);
+  const dispatch = useDispatch();
 
   const clearImgFields = () => {
     setImg(undefined);
@@ -59,6 +61,7 @@ const AddCategory = () => {
 
       clearImgFields();
       setCategoryName('');
+      // dispatch(AddCategory(res.data));
     } catch (error) {
       console.log(error);
     }

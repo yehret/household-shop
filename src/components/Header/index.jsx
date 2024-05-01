@@ -4,32 +4,46 @@ import CartModal from '../CartModal';
 import { useEffect, useState } from 'react';
 import axios from '../../utils/axios';
 import cyrillicToTranslit from 'cyrillic-to-translit-js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchStart, fetchSuccess } from '../../redux/categorySlice';
 
 const Header = () => {
   const { orderStack } = useSelector((state) => state.cart);
   const [isOpen, setIsOpen] = useState(false);
-  const [categories, setCategories] = useState([]);
+  const { categories, loading } = useSelector((state) => state.category);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchCategories = async () => {
+      dispatch(fetchStart());
       try {
         const res = await axios.get('categories');
-        setCategories(res.data);
+        dispatch(fetchSuccess(res.data));
       } catch (error) {
         console.log(error.message);
       }
     };
 
     fetchCategories();
-  }, []);
+  }, [dispatch]);
 
-  let capitalizedCategories = categories.map((obj) => {
-    return {
-      ...obj,
-      name: obj.name.charAt(0).toUpperCase() + obj.name.slice(1),
-    };
-  });
+  const renderCategories = () => {
+    if (loading) {
+      return <Link className="category-item nav-item">Завантаження...</Link>; // Display a loading indicator
+    }
+
+    return categories.map((category) => {
+      const capitalizedName = category.name.charAt(0).toUpperCase() + category.name.slice(1);
+      return (
+        <Link
+          to={`/${cyrillicToTranslit({ preset: 'uk' }).transform(category.name.toLowerCase())}`}
+          key={category._id}
+          className="category-item nav-item">
+          {capitalizedName}
+        </Link>
+      );
+    });
+  };
 
   return (
     <>
@@ -60,18 +74,7 @@ const Header = () => {
           </div>
           <div className="header-nav">
             <div className="nav-search nav-item icon search-icon">&nbsp;</div>
-            {capitalizedCategories.map((category) => {
-              return (
-                <Link
-                  to={`/${cyrillicToTranslit({ preset: 'uk' }).transform(
-                    category.name.toLowerCase(),
-                  )}`}
-                  key={category._id}
-                  className="category-item nav-item">
-                  {category.name}
-                </Link>
-              );
-            })}
+            {renderCategories()}
           </div>
         </div>
       </header>

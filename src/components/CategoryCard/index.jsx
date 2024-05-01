@@ -11,9 +11,7 @@ const CategoryCard = ({ categoryName, categoryImg }) => {
 
   return (
     <div className="card">
-      <Link
-        to={`${cyrillicToTranslit({ preset: 'uk' }).transform(path)}`}
-        title="Сторінка категорії">
+      <Link to={`${cyrillicToTranslit({ preset: 'uk' }).transform(path)}`} title={categoryName}>
         <img
           src={
             categoryImg
