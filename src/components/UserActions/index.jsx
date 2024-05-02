@@ -27,10 +27,7 @@ const UserActions = ({ currentUser }) => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('users/logout', {
-        withCredentials: true,
-        credentials: 'include',
-      });
+      await axios.get('users/logout/');
 
       dispatch(logout());
       navigate('/');
