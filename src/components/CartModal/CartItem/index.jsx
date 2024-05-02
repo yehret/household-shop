@@ -11,8 +11,10 @@ const CartItem = ({ itemData }) => {
   };
 
   const handleDecrement = () => {
-    dispatch(minusQuantity(itemData._id));
-    setQuantity(quantity - 1);
+    if (quantity > 1) {
+      dispatch(minusQuantity(itemData._id));
+      setQuantity(quantity - 1);
+    }
   };
 
   const handleIncrement = () => {

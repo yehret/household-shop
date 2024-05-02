@@ -13,6 +13,26 @@ const CartModal = ({ setIsOpen, isOpen }) => {
   const [clientMiddlename, setClientMiddlename] = useState(currentUser?.middlename || '');
   const [clientNumber, setClientNumber] = useState(currentUser?.phoneNumber || '');
 
+  const countTotalPrice = (orderStack) => {
+    let totalPrice = 0;
+    orderStack.forEach((item) => {
+      totalPrice += item.price * item.quantityOrder;
+    });
+
+    return totalPrice;
+  };
+
+  const showTotalItems = (orderStack) => {
+    let totalItems = 0;
+    orderStack.forEach((item) => {
+      totalItems += item.quantityOrder;
+    });
+
+    if (totalItems === 1) return '1 товар на суму:';
+    else if (totalItems > 1 && totalItems < 5) return `${totalItems} товари на суму:`;
+    else return `${totalItems} товарів на суму:`;
+  };
+
   return (
     <>
       <section className="cart-modal__full-screen">
@@ -87,7 +107,14 @@ const CartModal = ({ setIsOpen, isOpen }) => {
                 </div>
                 <div className="cartlist-details">
                   <div className="cartlist-block">
-                    <div className="cartlist-details_summary">Сума замовлення</div>
+                    <div className="cartlist-details_summary">
+                      <h2>Сума замовлення</h2>
+                      {showTotalItems(orderStack)}
+                      <span className="totalPrice">
+                        {countTotalPrice(orderStack)} <span className="details-price-tag">₴</span>
+                      </span>
+                    </div>
+                    <button className="btn-green">Оформити замовлення</button>
                   </div>
                 </div>
               </div>

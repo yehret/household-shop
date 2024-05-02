@@ -226,6 +226,10 @@ p {
    line-height: 1.6;
 }
 
+.cartlist-details_summary h2 {
+   margin-bottom: 1rem;
+}
+
 .icon-plus-value {
    height: 22px;
    width: 22px;
@@ -296,4 +300,8 @@ p {
 .double-form input {
    width: 300px;
    margin-right: 1rem;
+}
+
+.totalPrice {
+   float: right;
 }

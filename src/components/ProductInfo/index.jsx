@@ -88,7 +88,7 @@ const ProductInfo = ({ productData }) => {
           </div>
           <div className="product-cart">
             <div className="addToCartButton">
-              <button onClick={handleAddToCart} className="addtocart">
+              <button onClick={handleAddToCart} className="btn-green">
                 Додати у кошик
               </button>
             </div>

@@ -16,7 +16,7 @@ const WishlistItem = ({ favourite }) => {
         <strong className="wishlist-item__pricetag">Ціна: ${favourite.price}</strong>
         <div className="wishlist-item__date"></div>
         <div className="wishlist-item__buttons-wrapper">
-          <button className="addtocart">Додати у кошик</button>
+          <button className="btn-green">Додати у кошик</button>
           <div className="wishlist-item__remove">
             <span className="icon icon-remove"></span>
             <span className="wishlist-item__remove-title">Видалити</span>
