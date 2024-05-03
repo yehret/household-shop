@@ -1,8 +1,6 @@
 import OrderProductItem from './OrderProductItem';
 
-const OrderItem = ({ itemData }) => {
-  console.log(itemData);
-
+const OrderItem = ({ itemData, isAccess }) => {
   const checkOrderStatus = (status) => {
     switch (status) {
       case 'очікує підтвердження':
@@ -43,6 +41,13 @@ const OrderItem = ({ itemData }) => {
           </div>
         </div>
       </div>
+      <div className="account-section__client-data">
+        {isAccess && (
+          <span>
+            Від: {itemData.clientLastname} {itemData.clientName} {itemData.clientMiddlename}
+          </span>
+        )}
+      </div>
       <div className="account-section__order-products">
         {itemData.orderStack.map((item) => {
           return <OrderProductItem key={item.productId} itemData={item} />;
@@ -52,6 +57,16 @@ const OrderItem = ({ itemData }) => {
         <div className="order-cancel-button order-action-button">
           <span>Скасувати замовлення</span>
         </div>
+        {isAccess && (
+          <>
+            <div className="order-accept-button order-action-button">
+              <span>Підтвердити замовлення</span>
+            </div>
+            <div className="order-complete-button order-action-button">
+              <span>Позначити як виконане</span>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

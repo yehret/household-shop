@@ -1,13 +1,14 @@
 import axios from '../../utils/axios';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../redux/userSlice';
+import { logout, setPermission } from '../../redux/userSlice';
 import AdminUser from './Actions/AdminUser';
 import RegularUser from './Actions/RegularUser';
+import { clearProfileOrders } from '../../redux/profileOrdersSlice';
 
 const UserActions = ({ currentUser }) => {
-  const [userStatus, setUserStatus] = useState({});
+  const { isPermission } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -15,28 +16,29 @@ const UserActions = ({ currentUser }) => {
     const getUser = async () => {
       try {
         const userRes = await axios.get(`users/checkuser/${currentUser._id}`);
-
-        setUserStatus(userRes.data);
+        console.log(userRes);
+        dispatch(setPermission(userRes.data.status));
       } catch (error) {
         console.log(error);
       }
     };
 
     getUser();
-  }, [currentUser]);
+  }, [currentUser, dispatch]);
 
   const handleLogout = async () => {
     try {
       await axios.get('users/logout/');
 
       dispatch(logout());
+      dispatch(clearProfileOrders());
       navigate('/');
     } catch (error) {
       console.log(error);
     }
   };
 
-  return userStatus.status == true ? (
+  return isPermission ? (
     <AdminUser handleLogout={handleLogout} />
   ) : (
     <RegularUser handleLogout={handleLogout} />

@@ -27,24 +27,17 @@ const Home = () => {
     fetchCategories();
   }, [dispatch]);
 
-  const renderCategories = () => {
-    //  if (isError) return <NotFound />;
-
-    if (loading) {
-      return [...new Array(4)].map((_, index) => <CategoryCardLoader key={index} />); // Display a loading indicator
-    }
-
-    return categories.map((category) => {
-      const capitalizedName = category.name.charAt(0).toUpperCase() + category.name.slice(1);
-      return (
-        <CategoryCard
-          key={category._id}
-          categoryName={capitalizedName}
-          categoryImg={category.imgURL}
-        />
-      );
-    });
-  };
+  const skeletons = [...new Array(4)].map((_, index) => <CategoryCardLoader key={index} />);
+  const categoriesItems = categories.map((category) => {
+    const capitalizedName = category.name.charAt(0).toUpperCase() + category.name.slice(1);
+    return (
+      <CategoryCard
+        key={category._id}
+        categoryName={capitalizedName}
+        categoryImg={category.imgURL}
+      />
+    );
+  });
 
   return (
     <section>
@@ -54,7 +47,7 @@ const Home = () => {
       {isError ? (
         <NotFound type={'categories'} />
       ) : (
-        <div className="category-cards-wrapper">{renderCategories()}</div>
+        <div className="category-cards-wrapper">{loading ? skeletons : categoriesItems}</div>
       )}
     </section>
   );

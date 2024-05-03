@@ -1,24 +1,24 @@
 import { useEffect } from 'react';
 import OrderItem from '../../components/OrderItem';
-import './styles.css';
 import axios from '../../utils/axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess } from '../../redux/profileOrdersSlice';
 
-const AllOrders = () => {
+const UserOrders = () => {
+  const { currentUser } = useSelector((state) => state.user);
   const { orders } = useSelector((state) => state.profileOrders);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getOrders = async () => {
+    const fetchOrders = async () => {
       dispatch(fetchStart());
-      const orderRes = await axios.get('orders');
+      const ordersRes = await axios.get(`orders/${currentUser.phoneNumber}`);
 
-      dispatch(fetchSuccess(orderRes.data));
+      dispatch(fetchSuccess(ordersRes.data));
     };
 
-    getOrders();
-  }, [dispatch]);
+    fetchOrders();
+  }, [dispatch, currentUser]);
 
   return (
     <section>
@@ -26,7 +26,7 @@ const AllOrders = () => {
         <div className="account-section-orders">
           <h2 className="account-section__header">Замовлення</h2>
           {orders.map((item) => {
-            return <OrderItem isAccess={true} key={item._id} itemData={item} />;
+            return <OrderItem isAccess={false} key={item._id} itemData={item} />;
           })}
         </div>
       </div>
@@ -34,4 +34,4 @@ const AllOrders = () => {
   );
 };
 
-export default AllOrders;
+export default UserOrders;

@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
    currentUser: null,
+   isPermission: false,
    loading: false,
    error: false
 }
@@ -23,6 +24,7 @@ export const userSlice = createSlice({
       },
       logout: (state) => {
          state.currentUser =  null;
+         state.isPermission = false;
          state.loading = false;
          state.error= false;
       },
@@ -33,10 +35,13 @@ export const userSlice = createSlice({
          else {
             state.currentUser.favourites.push(action.payload)
          }
+      },
+      setPermission: (state, action) => {
+         state.isPermission = action.payload
       }
    }
 })
 
-export const {loginStart, loginSuccess, loginFailure, logout, favourite} = userSlice.actions
+export const {loginStart, loginSuccess, loginFailure, logout, favourite, setPermission} = userSlice.actions
 
 export default userSlice.reducer

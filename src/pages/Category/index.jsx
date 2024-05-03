@@ -37,14 +37,10 @@ const Category = () => {
     fetchProducts();
   }, [pathname, dispatch]);
 
-  const renderProducts = () => {
-    if (loading) {
-      return [...new Array(4)].map((_, index) => <ProductSkeleton key={index} />); // Display a loading indicator
-    }
-    return products.map((card) => {
-      return <Card key={card._id} card={card} />;
-    });
-  };
+  const skeletons = [...new Array(4)].map((_, index) => <ProductSkeleton key={index} />);
+  const productsItems = products.map((card) => {
+    return <Card key={card._id} card={card} />;
+  });
 
   return (
     <section>
@@ -69,7 +65,7 @@ const Category = () => {
       {isError ? (
         <NotFound type={'products'} />
       ) : (
-        <div className="cards-wrapper">{renderProducts()}</div>
+        <div className="cards-wrapper">{loading ? skeletons : productsItems}</div>
       )}
     </section>
   );

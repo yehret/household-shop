@@ -10,6 +10,7 @@ import AddProduct from './pages/AddProduct';
 import AddCategory from './pages/AddCategory';
 import AllOrders from './pages/AllOrders';
 import NoMatch from './pages/NoMatch';
+import UserOrders from './pages/UserOrders';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/customer-area/" element={<Profile />} />
         <Route path="/customer-area/all-orders" element={<AllOrders />} />
+        <Route path="/customer-area/orders" element={<UserOrders />} />
         <Route path="/customer-area/add-product" element={<AddProduct />} />
         <Route path="/customer-area/add-category" element={<AddCategory />} />
         <Route path="*" element={<NoMatch />} />

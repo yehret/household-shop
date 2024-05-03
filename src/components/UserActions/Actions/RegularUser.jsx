@@ -6,7 +6,7 @@ const RegularUser = ({ handleLogout }) => {
       <div>
         <div className="account-section">
           <h2 className="account-section__header">Ваші замовлення</h2>
-          <Link className="account-section__link">
+          <Link to={'/customer-area/orders'} className="account-section__link">
             <div>Замовлення</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
