@@ -81,7 +81,7 @@ const CartModal = ({ setIsOpen, isOpen }) => {
           </div>
           {orderStack.length > 0 ? (
             <>
-              <div className="form-wrapper"></div>
+              <div className="formCart-wrapper"></div>
               <div className="cart-wrapper">
                 <div className="cart-data">
                   <div className="formCart-list">

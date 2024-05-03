@@ -2,14 +2,39 @@ import { useState, useEffect } from 'react';
 import axios from '../../utils/axios.js';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import app from '../../../firebase.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const AddCategory = () => {
+  const { currentUser } = useSelector((state) => state.user);
   const [name, setCategoryName] = useState('');
   const [img, setImg] = useState(undefined);
   const [imgURL, setImgURL] = useState('');
   const [imgPerc, setImgPerc] = useState(0);
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [userStatus, setUserStatus] = useState({});
+
+  useEffect(() => {
+    const getUser = async () => {
+      if (currentUser) {
+        try {
+          const userRes = await axios.get(`users/checkuser/${currentUser._id}`);
+
+          setUserStatus(userRes.data);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        navigate('/');
+      }
+    };
+
+    getUser();
+
+    if (userStatus.status == false) {
+      navigate('/');
+    }
+  }, [currentUser, navigate, userStatus]);
 
   const clearImgFields = () => {
     setImg(undefined);

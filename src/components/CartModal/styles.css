@@ -251,7 +251,7 @@ p {
    align-items: center;
 }
 
-.form-wrapper {
+.formCart-wrapper {
    display: flex;
    flex-direction: column;
 }

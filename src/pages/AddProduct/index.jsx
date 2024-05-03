@@ -2,8 +2,11 @@ import axios from '../../utils/axios';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { useEffect, useState } from 'react';
 import app from '../../../firebase';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
+  const { currentUser } = useSelector((state) => state.user);
   const [name, setName] = useState('');
   const [brandname, setBrandname] = useState('');
   const [price, setPrice] = useState('');
@@ -14,6 +17,30 @@ const AddProduct = () => {
   const [imgPerc, setImgPerc] = useState(0);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
+  const [userStatus, setUserStatus] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const getUser = async () => {
+      if (currentUser) {
+        try {
+          const userRes = await axios.get(`users/checkuser/${currentUser._id}`);
+
+          setUserStatus(userRes.data);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        navigate('/');
+      }
+    };
+
+    getUser();
+
+    if (userStatus.status == false) {
+      navigate('/');
+    }
+  }, [currentUser, navigate, userStatus]);
 
   const clearImgFields = () => {
     setImg(undefined);
