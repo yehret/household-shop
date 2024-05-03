@@ -1,6 +1,10 @@
 import OrderProductItem from './OrderProductItem';
+import axios from '../../utils/axios';
+import { useDispatch } from 'react-redux';
+import { acceptOrder, cancelOrder, completeOrder } from '../../redux/profileOrdersSlice';
 
 const OrderItem = ({ itemData, isAccess }) => {
+  const dispatch = useDispatch();
   const checkOrderStatus = (status) => {
     switch (status) {
       case 'очікує підтвердження':
@@ -21,6 +25,33 @@ const OrderItem = ({ itemData, isAccess }) => {
 
   const [hour, minute] = timePart.split(':');
   const formattedTime = `${hour}:${minute}`;
+
+  const handleCancelOrder = async () => {
+    try {
+      await axios.put(`orders/cancel/${itemData._id}`);
+      dispatch(cancelOrder(itemData._id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleAcceptOrder = async () => {
+    try {
+      await axios.put(`orders/accept/${itemData._id}`);
+      dispatch(acceptOrder(itemData._id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleCompleteOrder = async () => {
+    try {
+      await axios.put(`orders/complete/${itemData._id}`);
+      dispatch(completeOrder(itemData._id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="account-section__item">
@@ -43,9 +74,12 @@ const OrderItem = ({ itemData, isAccess }) => {
       </div>
       <div className="account-section__client-data">
         {isAccess && (
-          <span>
-            Від: {itemData.clientLastname} {itemData.clientName} {itemData.clientMiddlename}
-          </span>
+          <>
+            <span>
+              Від: {itemData.clientLastname} {itemData.clientName} {itemData.clientMiddlename}
+            </span>
+            <span>Тел: {itemData.clientNumber}</span>
+          </>
         )}
       </div>
       <div className="account-section__order-products">
@@ -54,15 +88,17 @@ const OrderItem = ({ itemData, isAccess }) => {
         })}
       </div>
       <div className="account-section__order-actions">
-        <div className="order-cancel-button order-action-button">
+        <div onClick={handleCancelOrder} className="order-cancel-button order-action-button">
           <span>Скасувати замовлення</span>
         </div>
         {isAccess && (
           <>
-            <div className="order-accept-button order-action-button">
+            <div onClick={handleAcceptOrder} className="order-accept-button order-action-button">
               <span>Підтвердити замовлення</span>
             </div>
-            <div className="order-complete-button order-action-button">
+            <div
+              onClick={handleCompleteOrder}
+              className="order-complete-button order-action-button">
               <span>Позначити як виконане</span>
             </div>
           </>

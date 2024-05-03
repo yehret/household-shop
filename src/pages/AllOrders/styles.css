@@ -25,6 +25,10 @@
    margin-bottom: 2rem;
 }
 
+.account-section__client-data span:first-child {
+   margin-right: 24px;
+}
+
 .account-section__order-number {
    border-right: 1px solid #c9c8c7;
    padding-right: 24px;

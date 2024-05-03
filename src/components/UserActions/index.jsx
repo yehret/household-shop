@@ -16,7 +16,6 @@ const UserActions = ({ currentUser }) => {
     const getUser = async () => {
       try {
         const userRes = await axios.get(`users/checkuser/${currentUser._id}`);
-        console.log(userRes);
         dispatch(setPermission(userRes.data.status));
       } catch (error) {
         console.log(error);
