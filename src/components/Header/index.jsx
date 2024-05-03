@@ -36,7 +36,9 @@ const Header = () => {
       const capitalizedName = category.name.charAt(0).toUpperCase() + category.name.slice(1);
       return (
         <Link
-          to={`/${cyrillicToTranslit({ preset: 'uk' }).transform(category.name.toLowerCase())}`}
+          to={`categories/${cyrillicToTranslit({ preset: 'uk' }).transform(
+            category.name.toLowerCase(),
+          )}`}
           key={category._id}
           className="category-item nav-item">
           {capitalizedName}

@@ -8,7 +8,7 @@ import axios from '../../utils/axios';
 const Product = () => {
   const [productData, setProductData] = useState({});
   const { pathname } = useLocation();
-  const productId = pathname.split('/')[2];
+  const productId = pathname.split('/')[3];
 
   useEffect(() => {
     const fetchProduct = async () => {

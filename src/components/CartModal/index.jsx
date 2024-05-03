@@ -45,7 +45,7 @@ const CartModal = ({ setIsOpen, isOpen }) => {
         productId: item._id,
         productName: item.name,
         productBrandname: item.brandname,
-        productImgURL: item.imgURL,
+        productImgURL: item.imageURL,
         quantityOrder: item.quantityOrder,
         price: item.price,
       }));

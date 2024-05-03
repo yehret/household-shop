@@ -1,0 +1,159 @@
+.account-section-orders {
+   margin-top: 3rem;
+   margin-bottom: 3rem;
+   padding: 0 5%;
+}
+
+.account-section__item {
+   border-top: 1px solid #c9c8c7;
+   /* border-bottom: 1px solid #c9c8c7; */
+   color: #333;
+   padding: 1rem 0;
+   align-items: center;
+   margin-bottom: 40px;
+}
+
+.account-section__order-data {
+   display: flex;
+   align-items: center;
+   flex-direction: row;
+   margin-bottom: 2rem;
+}
+
+.account-section__order-number {
+   border-right: 1px solid #c9c8c7;
+   padding-right: 24px;
+   margin: 0 24px 0 0;
+   width: auto;
+}
+
+.account-section__order-date {
+   width: auto;
+}
+
+.account-section__order-date span {
+   display: inline;
+   width: auto;
+}
+
+.account-section__order-status {
+   margin: 0 auto;
+   margin-right: 0;
+}
+
+.order-status {
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   margin-right: 0;
+}
+
+.green-status {
+   background-color: #41a561;
+   color: #fff;
+}
+
+.blue-status {
+   background-color: #416ba5;
+   color: #fff;
+}
+
+.red-status {
+   background-color: #a54841;
+   color: #fff;
+}
+
+.yellow-status {
+   background-color: #cbcb47;
+   color: #fff;
+}
+
+.order-status-name {
+   padding: 5px 10px;
+   width: auto;
+   border-radius: 2px;
+}
+
+.account-section__order-product {
+   background-color: #fafafa;
+   padding: 16px 24px;
+   align-items: center;
+   display: flex;
+
+}
+
+.order-product-img {
+   height: 40px;
+   margin-right: 24px;
+   width: 40px;
+   flex: none;
+   mix-blend-mode: multiply;
+}
+
+.order-product-img img {
+   display: block;
+   max-width: auto;
+   max-height: 100%;
+   max-width: 100%;
+}
+
+.order-product-name {
+   white-space: normal;
+   height: auto;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.order-product-price-details {
+   display: flex;
+   margin: 0 auto;
+   margin-right: 0;
+}
+
+.order-product-price .details-price-tag {
+   font-size: 15px;
+}
+
+.separator {
+   margin: 0 5px;
+   font-weight: bold;
+}
+
+.account-section__order-actions {
+   display: flex;
+   margin-top: 32px;
+}
+
+.order-cancel-button {
+   background-color: transparent;
+   border: 1px solid #c9c8c7;
+   border-radius: 2px;
+   color: #333;
+   letter-spacing: .16px;
+   transition: .2s all ease-in-out;
+}
+
+.order-cancel-button:hover {
+   background-color: #333;
+   color: #fff;
+}
+
+.order-cancel-button span {
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   position: relative;
+   z-index: 2;
+}
+
+.order-action-button {
+   cursor: pointer;
+   display: inline-flex;
+   height: 48px;
+   justify-content: start;
+   overflow: hidden;
+   padding: 20px 24px;
+   text-align: center;
+   position: relative;
+   transform: translateZ(0);
+}

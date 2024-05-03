@@ -12,6 +12,7 @@ export const productsSlice = createSlice({
   reducers: {
     fetchStart: (state) => {
       state.loading = true;
+      state.products = [];
     },
     fetchSuccess: (state, action) => {
       state.loading = false;
