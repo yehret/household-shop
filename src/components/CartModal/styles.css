@@ -10,7 +10,7 @@
    left: 0;
    background: #fff;
    box-shadow: 0 0 30px rgba(51,51,51,.3);
-   overflow-y: auto;
+   overflow-y: hidden;
 }
 
 .cart-modal__header {

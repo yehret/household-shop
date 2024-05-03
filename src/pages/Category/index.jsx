@@ -16,8 +16,6 @@ const Category = () => {
   const categoryTitle = pathname.charAt(1).toUpperCase() + pathname.slice(2);
   const [isError, setIsError] = useState(false);
 
-  console.log(products, loading);
-
   useEffect(() => {
     const fetchProducts = async () => {
       dispatch(fetchStart());
