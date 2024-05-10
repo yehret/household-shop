@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import axios from '../../utils/axios';
 import { clearCart } from '../../redux/cartSlice';
-import { customAlphabet } from 'nanoid';
 
 const CartModal = ({ setIsOpen, isOpen }) => {
   const { orderStack } = useSelector((state) => state.cart);
@@ -39,8 +38,6 @@ const CartModal = ({ setIsOpen, isOpen }) => {
 
   const handleSendOrder = async () => {
     try {
-      const nanoid = customAlphabet('1234567890', 10);
-      const id = nanoid();
       const orderDetails = orderStack.map((item) => ({
         productId: item._id,
         productName: item.name,
@@ -51,7 +48,6 @@ const CartModal = ({ setIsOpen, isOpen }) => {
       }));
 
       const orderData = {
-        orderId: id,
         clientNumber,
         clientName,
         clientLastname,

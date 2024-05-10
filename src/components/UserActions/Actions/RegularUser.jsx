@@ -30,6 +30,12 @@ const RegularUser = ({ handleLogout }) => {
         </div>
         <div className="account-section">
           <h2 className="account-section__header">Ваш обліковий запис</h2>
+          <Link to={'/customer-area/dropship-program'} className="account-section__link">
+            <div>Стати дропшипером</div>
+            <div className="account-section-arrow">
+              <span className="icon icon-arrow"></span>
+            </div>
+          </Link>
           <Link className="account-section__link">
             <div>Видалити акаунт</div>
             <div className="account-section-arrow">

@@ -1,13 +1,13 @@
 import OrderProductItem from './OrderProductItem';
 import axios from '../../utils/axios';
 import { useDispatch } from 'react-redux';
-import { acceptOrder, cancelOrder, completeOrder } from '../../redux/profileOrdersSlice';
+import { readyOrder, cancelOrder, completeOrder } from '../../redux/profileOrdersSlice';
 
 const OrderItem = ({ itemData, isAccess }) => {
   const dispatch = useDispatch();
   const checkOrderStatus = (status) => {
     switch (status) {
-      case 'очікує підтвердження':
+      case 'готово до видачі':
         return 'yellow-status';
       case 'в обробці':
         return 'blue-status';
@@ -35,10 +35,10 @@ const OrderItem = ({ itemData, isAccess }) => {
     }
   };
 
-  const handleAcceptOrder = async () => {
+  const handleReadyOrder = async () => {
     try {
-      await axios.put(`orders/accept/${itemData._id}`);
-      dispatch(acceptOrder(itemData._id));
+      await axios.put(`orders/ready/${itemData._id}`);
+      dispatch(readyOrder(itemData._id));
     } catch (error) {
       console.log(error);
     }
@@ -93,8 +93,8 @@ const OrderItem = ({ itemData, isAccess }) => {
         </div>
         {isAccess && (
           <>
-            <div onClick={handleAcceptOrder} className="order-accept-button order-action-button">
-              <span>Підтвердити замовлення</span>
+            <div onClick={handleReadyOrder} className="order-accept-button order-action-button">
+              <span>Готове до видачі</span>
             </div>
             <div
               onClick={handleCompleteOrder}

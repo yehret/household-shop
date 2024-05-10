@@ -26,8 +26,8 @@ export const profileOrdersSlice = createSlice({
          const updatedOrders = state.orders.map(order => order._id === action.payload ? {...order, status: 'скасовано'} : order)
          state.orders = updatedOrders;
       },
-      acceptOrder: (state, action) => {
-         const updatedOrders = state.orders.map(order => order._id === action.payload ? {...order, status: 'в обробці'} : order)
+      readyOrder: (state, action) => {
+         const updatedOrders = state.orders.map(order => order._id === action.payload ? {...order, status: 'готово до видачі'} : order)
          state.orders = updatedOrders;
       },
       completeOrder: (state, action) => {
@@ -38,6 +38,6 @@ export const profileOrdersSlice = createSlice({
    }
 })
 
-export const {fetchStart, fetchSuccess, fetchFailure, clearProfileOrders, cancelOrder, acceptOrder, completeOrder} = profileOrdersSlice.actions
+export const {fetchStart, fetchSuccess, fetchFailure, clearProfileOrders, cancelOrder, readyOrder, completeOrder} = profileOrdersSlice.actions
 
 export default profileOrdersSlice.reducer
