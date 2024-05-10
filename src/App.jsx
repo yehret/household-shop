@@ -12,6 +12,7 @@ import AllOrders from './pages/AllOrders';
 import NoMatch from './pages/NoMatch';
 import UserOrders from './pages/UserOrders';
 import DropshipApplication from './pages/DropshipApplication';
+import DropshipUsers from './pages/DropshipUsers';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="add-product" element={<AddProduct />} />
           <Route path="add-category" element={<AddCategory />} />
           <Route path="dropship-program" element={<DropshipApplication />} />
+          <Route path="dropshippers" element={<DropshipUsers />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>

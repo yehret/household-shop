@@ -24,7 +24,7 @@ const AdminUser = ({ handleLogout }) => {
               <span className="icon icon-arrow"></span>
             </div>
           </Link>
-          <Link to="/customer-area/all-orders" className="account-section__link">
+          <Link to="/customer-area/dropshippers" className="account-section__link">
             <div>Дропшипери</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>

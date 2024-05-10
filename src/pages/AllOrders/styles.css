@@ -4,6 +4,16 @@
    padding: 0 5%;
 }
 
+.account-section-dropshippers {
+   margin-top: 3rem;
+   margin-bottom: 3rem;
+   padding: 0 5%;
+}
+
+.account-section-dropshippers .account-section__item {
+   border-bottom: 1px solid #c9c8c7;
+}
+
 .account-section__item {
    border-top: 1px solid #c9c8c7;
    /* border-bottom: 1px solid #c9c8c7; */
@@ -23,6 +33,17 @@
 .account-section__client-data {
    color: #999;
    margin-bottom: 2rem;
+}
+
+.account-section__client-details {
+   border-top: 1px solid #c9c8c7;
+   margin-top: 1rem;
+   padding-top: 1rem;
+   margin-bottom: 2rem;
+}
+
+.account-section__client-details p {
+   padding: 0;
 }
 
 .account-section__client-data span:first-child {

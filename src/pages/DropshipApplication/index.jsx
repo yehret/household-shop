@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import './styles.css';
 import { useMask } from '@react-input/mask';
 import { useState } from 'react';
+import axios from '../../utils/axios';
 
 const DropshipApplication = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -26,6 +27,31 @@ const DropshipApplication = () => {
     mask: '38__________',
     replacement: { _: /\d/ },
   });
+
+  const handleSendRequest = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put(`/users/dropshipper-request/${currentUser._id}`, {
+        name,
+        lastname,
+        middlename,
+        email,
+        phone,
+        country,
+        mailIndex,
+        region,
+        district,
+        city,
+        address,
+        drfo,
+        mfo,
+        iban,
+        bankName,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <section>
@@ -95,7 +121,7 @@ const DropshipApplication = () => {
                     />
                   </div>
                   <div className="form-list__item">
-                    <label htmlFor="MailIndex">Індес</label>
+                    <label htmlFor="MailIndex">Індекс</label>
                     <input
                       value={mailIndex}
                       onChange={(e) => setMailIndex(e.target.value)}
@@ -124,25 +150,24 @@ const DropshipApplication = () => {
                     />
                   </div>
                 </div>
-                <div className="form-list__multi-item">
-                  <div className="form-list__item">
-                    <label htmlFor="City">Місто</label>
-                    <input
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                      type="text"
-                      name="City"
-                    />
-                  </div>
-                  <div className="form-list__item">
-                    <label htmlFor="Address">Адрес</label>
-                    <input
-                      value={address}
-                      onChange={(e) => setAddress(e.target.value)}
-                      type="text"
-                      name="Address"
-                    />
-                  </div>
+                <div className="form-list__item">
+                  <label htmlFor="City">Місто</label>
+                  <input
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    type="text"
+                    name="City"
+                  />
+                </div>
+                <div className="form-list__item">
+                  <label htmlFor="Address">Адрес</label>
+                  <input
+                    placeholder="напр. вул.Шевченка, буд.3, кв.10"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    type="text"
+                    name="Address"
+                  />
                 </div>
               </form>
             </div>
@@ -191,7 +216,9 @@ const DropshipApplication = () => {
               </form>
             </div>
           </div>
-          <button className="addproduct">Оформити заявку</button>
+          <button onClick={handleSendRequest} className="addproduct">
+            Оформити заявку
+          </button>
         </div>
       </div>
     </section>
