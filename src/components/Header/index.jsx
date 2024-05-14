@@ -10,6 +10,7 @@ import { fetchStart, fetchSuccess } from '../../redux/categorySlice';
 
 const Header = () => {
   const { orderStack } = useSelector((state) => state.cart);
+  const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { categories, loading } = useSelector((state) => state.category);
   const dispatch = useDispatch();
@@ -40,11 +41,19 @@ const Header = () => {
           to={`categories/${cyrillicToTranslitWithDash(category.name)}`}
           state={{ categoryName: category.name }}
           key={category._id}
-          className="category-item nav-item">
+          className="nav-dropdown__item">
           {capitalizedName}
         </Link>
       );
     });
+  };
+
+  const handleMouseEnter = () => {
+    setIsVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsVisible(false);
   };
 
   return (
@@ -76,7 +85,21 @@ const Header = () => {
           </div>
           <div className="header-nav">
             <div className="nav-search nav-item icon search-icon">&nbsp;</div>
-            {renderCategories()}
+            <Link
+              className="category-item nav-item"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}>
+              <span className="icon icon-categories"></span>
+              Категорії
+            </Link>
+            <section
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className={`nav-dropdown ${isVisible && 'nav-open'}`}>
+              <div>
+                <div className="nav-dropdown__container">{renderCategories()}</div>
+              </div>
+            </section>
           </div>
         </div>
       </header>
