@@ -3,30 +3,26 @@ import Card from '../../components/Card';
 import './styles.css';
 import { useLocation } from 'react-router-dom';
 import axios from '../../utils/axios';
-import cyrillicToTranslit from 'cyrillic-to-translit-js';
 import ContentLoader from 'react-content-loader';
 import NotFound from '../../components/NotFound';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess } from '../../redux/productsSlice';
+import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 
 const Category = () => {
   const { products, loading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  const { pathname } = useLocation();
   const [isError, setIsError] = useState(false);
 
-  const splitPathname = (pathname) => {
-    const parts = pathname.split('/');
-    const path = parts[parts.length - 1];
-    return path;
-  };
+  const location = useLocation();
+  const categoryName = location.state.categoryName;
 
   useEffect(() => {
     const fetchProducts = async () => {
       dispatch(fetchStart());
       setIsError(false);
       try {
-        const res = await axios.get(`products/category/${splitPathname(pathname)}`);
+        const res = await axios.get(`products/category/${categoryName}`);
         dispatch(fetchSuccess(res.data));
       } catch (error) {
         console.log(error.message);
@@ -35,7 +31,7 @@ const Category = () => {
     };
 
     fetchProducts();
-  }, [pathname, dispatch]);
+  }, [dispatch, categoryName]);
 
   const skeletons = [...new Array(4)].map((_, index) => <ProductSkeleton key={index} />);
   const productsItems = products.map((card) => {
@@ -45,11 +41,7 @@ const Category = () => {
   return (
     <section>
       <div>
-        <h1 className="title">
-          {cyrillicToTranslit({ preset: 'uk' }).reverse(
-            splitPathname(pathname).charAt(0).toUpperCase() + splitPathname(pathname).slice(1),
-          )}
-        </h1>
+        <h1 className="title">{capitalizeFirstLetter(categoryName)}</h1>
       </div>
       {isError || (
         <div className="sort-section_head">

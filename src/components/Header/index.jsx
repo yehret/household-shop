@@ -4,6 +4,7 @@ import CartModal from '../CartModal';
 import { useEffect, useState } from 'react';
 import axios from '../../utils/axios';
 import cyrillicToTranslit from 'cyrillic-to-translit-js';
+import cyrillicToTranslitWithDash from '../../utils/cyrillicToTranslitWithDash';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchStart, fetchSuccess } from '../../redux/categorySlice';
 
@@ -36,9 +37,8 @@ const Header = () => {
       const capitalizedName = category.name.charAt(0).toUpperCase() + category.name.slice(1);
       return (
         <Link
-          to={`categories/${cyrillicToTranslit({ preset: 'uk' }).transform(
-            category.name.toLowerCase(),
-          )}`}
+          to={`categories/${cyrillicToTranslitWithDash(category.name)}`}
+          state={{ categoryName: category.name }}
           key={category._id}
           className="category-item nav-item">
           {capitalizedName}

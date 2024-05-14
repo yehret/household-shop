@@ -6,13 +6,11 @@ import cyrillicToTranslit from 'cyrillic-to-translit-js';
 const CategoryCard = ({ categoryName, categoryImg }) => {
   const path = categoryName.toLowerCase();
 
-  //   console.log(cyrillicToTranslit({ preset: 'uk' }).transform('категорія'));
-  //   console.log(cyrillicToTranslit({ preset: 'uk' }).reverse('katehoriia'));
-
   return (
     <div className="card">
       <Link
         to={`categories/${cyrillicToTranslit({ preset: 'uk' }).transform(path)}`}
+        state={{ categoryName }}
         title={categoryName}>
         <img
           src={

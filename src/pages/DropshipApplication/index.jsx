@@ -175,7 +175,7 @@ const DropshipApplication = () => {
               <form className="form-list">
                 <div className="form-list__multi-item">
                   <div className="form-list__item">
-                    <label htmlFor="DRFO">ДРФО</label>
+                    <label htmlFor="DRFO">ДРФО/ІПН (РНОКПП)</label>
                     <input
                       value={drfo}
                       onChange={(e) => setDrfo(e.target.value)}
