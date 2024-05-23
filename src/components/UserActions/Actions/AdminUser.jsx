@@ -1,6 +1,24 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from '../../../utils/axios';
 
 const AdminUser = ({ handleLogout }) => {
+  const [notapproved, setNotapproved] = useState([]);
+
+  useEffect(() => {
+    const getDropshippers = async () => {
+      try {
+        const usersRes = await axios.get('/users/not-approved-dropshippers');
+
+        setNotapproved(usersRes.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getDropshippers();
+  }, []);
+
   return (
     <section>
       <div>
@@ -27,9 +45,13 @@ const AdminUser = ({ handleLogout }) => {
           <Link to="/customer-area/dropshippers" className="account-section__link">
             <div className="account-section__link-title">
               <div>Дропшипери</div>
-              <span className="account-section__link-title-badge">
-                <p>10</p>
-              </span>
+              {notapproved.length > 0 ? (
+                <span className="account-section__link-title-badge">
+                  <p>{notapproved.length}</p>
+                </span>
+              ) : (
+                ''
+              )}
             </div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
