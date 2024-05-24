@@ -85,13 +85,13 @@ const Header = () => {
           </div>
           <div className="header-nav">
             <div className="nav-search nav-item icon search-icon">&nbsp;</div>
-            <Link
+            <span
               className="category-item nav-item"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}>
               <span className="icon icon-categories"></span>
               Категорії
-            </Link>
+            </span>
             <section
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}

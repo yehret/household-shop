@@ -13,10 +13,29 @@ import NoMatch from './pages/NoMatch';
 import UserOrders from './pages/UserOrders';
 import DropshipApplication from './pages/DropshipApplication';
 import DropshipUsers from './pages/DropshipUsers';
+import ModalRoot from './components/ModalRoot';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import axios from './utils/axios';
+import { loginSuccess } from './redux/userSlice';
 
 function App() {
+  const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const updateUserData = async () => {
+      const userRes = await axios.get(`users/user-data/${currentUser._id}`);
+
+      dispatch(loginSuccess(userRes.data));
+    };
+
+    updateUserData();
+  }, [currentUser._id, dispatch]);
+
   return (
     <BrowserRouter>
+      <ModalRoot />
       <Header />
       <Routes>
         <Route index element={<Home />} />

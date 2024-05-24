@@ -1,0 +1,44 @@
+.modal__backdrop {
+   z-index: 5000;
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+   background-color: rgba(51,51,51,.3);
+}
+
+.modal-popup {
+   background-color: #fff;
+   width: 560px;
+   height: 300px;
+   top: 3vh;
+   margin-left: auto;
+   margin-right: auto;
+   bottom: inherit;
+   padding: 20px 40px 34px;
+   z-index: 10000;
+   position: fixed;
+   display: block;
+   top: 20;
+   right: 0;
+   left: 0;
+   box-shadow: 0 0 30px rgba(51,51,51,.3);
+   white-space: initial;
+
+}
+
+.modal__close-button {
+   position: absolute;
+   z-index: 100;
+   top: 15px;
+   right: 15px;
+   padding: 9px;
+   cursor: pointer;
+}
+
+.icon-close {
+   background-image: url("data:image/svg+xml;utf-8, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2048%2048%27%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill%3Anone;stroke%3A%23333;stroke-linecap%3Around;stroke-miterlimit%3A7.759;stroke-width%3A2px%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cpath%20class=%27cls-1%27%20d=%27M45.3%2045.3%202.7%202.7M45.3%202.7%202.7%2045.3%27%2F%3E%3C%2Fsvg%3E");
+}

@@ -38,10 +38,13 @@ export const userSlice = createSlice({
       },
       setPermission: (state, action) => {
          state.isPermission = action.payload
+      },
+      setNotified: (state) => {
+         state.currentUser.notified = true;
       }
    }
 })
 
-export const {loginStart, loginSuccess, loginFailure, logout, favourite, setPermission} = userSlice.actions
+export const {loginStart, loginSuccess, loginFailure, logout, favourite, setPermission, setNotified} = userSlice.actions
 
 export default userSlice.reducer
