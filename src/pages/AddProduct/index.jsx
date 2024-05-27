@@ -1,6 +1,6 @@
 import axios from '../../utils/axios';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import app from '../../../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -17,30 +17,22 @@ const AddProduct = () => {
   const [imgPerc, setImgPerc] = useState(0);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
-  const [userStatus, setUserStatus] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const getUser = async () => {
-      if (currentUser) {
-        try {
-          const userRes = await axios.get(`users/checkuser/${currentUser._id}`);
-
-          setUserStatus(userRes.data);
-        } catch (error) {
-          console.log(error);
+  const getUser = useCallback(async () => {
+    if (currentUser) {
+      try {
+        const userRes = await axios.get(`users/checkuser/${currentUser?._id}`);
+        if (userRes.data.status === false) {
+          navigate('/');
         }
-      } else {
-        navigate('/');
+      } catch (error) {
+        console.log(error);
       }
-    };
-
-    getUser();
-
-    if (userStatus.status == false) {
+    } else {
       navigate('/');
     }
-  }, [currentUser, navigate, userStatus]);
+  }, [currentUser, navigate]);
 
   const clearImgFields = () => {
     setImg(undefined);
@@ -57,6 +49,7 @@ const AddProduct = () => {
   };
 
   useEffect(() => {
+    getUser();
     const fetchCategories = async () => {
       try {
         const categRes = await axios.get('categories');
@@ -67,7 +60,7 @@ const AddProduct = () => {
     };
 
     fetchCategories();
-  }, []);
+  }, [getUser]);
 
   const uploadFile = (file) => {
     const storage = getStorage(app);

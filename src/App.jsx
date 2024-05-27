@@ -24,14 +24,18 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const updateUserData = async () => {
-      const userRes = await axios.get(`users/user-data/${currentUser._id}`);
+    if (currentUser) {
+      const updateUserData = async () => {
+        const userRes = await axios.get(`users/user-data/${currentUser?._id}`);
 
-      dispatch(loginSuccess(userRes.data));
-    };
+        dispatch(loginSuccess(userRes.data));
+      };
 
-    updateUserData();
-  }, [currentUser._id, dispatch]);
+      updateUserData();
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser?._id, dispatch]);
 
   return (
     <BrowserRouter>

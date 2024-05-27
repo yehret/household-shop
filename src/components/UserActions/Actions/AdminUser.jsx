@@ -8,7 +8,7 @@ const AdminUser = ({ handleLogout }) => {
   useEffect(() => {
     const getDropshippers = async () => {
       try {
-        const usersRes = await axios.get('/users/not-approved-dropshippers');
+        const usersRes = await axios.get('/users/dropshippers/not-approved');
 
         setNotapproved(usersRes.data);
       } catch (error) {
