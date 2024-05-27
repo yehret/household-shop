@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import app from '../../../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Select from 'react-select';
 
 const AddProduct = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -54,6 +55,9 @@ const AddProduct = () => {
       try {
         const categRes = await axios.get('categories');
         setCategories(categRes.data);
+        if (categRes.data.length > 0) {
+          setCategory(categRes.data[0].name);
+        }
       } catch (error) {
         console.log(error);
       }

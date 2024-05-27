@@ -22,7 +22,7 @@ const Category = () => {
       dispatch(fetchStart());
       setIsError(false);
       try {
-        const res = await axios.get(`products/category/${categoryName}`);
+        const res = await axios.get(`products/category/${categoryName.toLowerCase()}`);
         dispatch(fetchSuccess(res.data));
       } catch (error) {
         console.log(error.message);
