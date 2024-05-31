@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import axios from './utils/axios';
 import { loginSuccess } from './redux/userSlice';
+import Search from './pages/Search';
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -47,6 +48,7 @@ function App() {
         <Route path="/categories/:categoryname" element={<Category />} />
         <Route path="/categories/:categoryname/:productId" element={<Product />} />
         <Route path="/favourites" element={<Favourites />} />
+        <Route path="/search" element={<Search />} />
         <Route path="customer-area">
           <Route index element={<Profile />} />
           <Route path="all-orders" element={<AllOrders />} />

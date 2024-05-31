@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './styles.css';
 import CartModal from '../CartModal';
 import { useEffect, useState } from 'react';
@@ -13,7 +13,9 @@ const Header = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { categories, loading } = useSelector((state) => state.category);
+  const [q, setQ] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -58,6 +60,7 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    navigate(`/search?q=${q}`);
   };
 
   return (
@@ -92,7 +95,7 @@ const Header = () => {
           </div>
           <div className="header-nav">
             <form className="nav-search-module-input">
-              <input placeholder="Пошук..." type="text" />
+              <input onChange={(e) => setQ(e.target.value)} placeholder="Пошук..." type="text" />
               <button onClick={handleSearch} className="nav-search-input-button">
                 <i className="icon search-icon">&nbsp;</i>
               </button>
