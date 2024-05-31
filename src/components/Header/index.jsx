@@ -56,6 +56,10 @@ const Header = () => {
     setIsVisible(false);
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       {isOpen && <CartModal isOpen={isOpen} setIsOpen={setIsOpen} />}
@@ -87,7 +91,12 @@ const Header = () => {
             </div>
           </div>
           <div className="header-nav">
-            <div className="nav-search nav-item icon search-icon">&nbsp;</div>
+            <form className="nav-search-module-input">
+              <input placeholder="Пошук..." type="text" />
+              <button onClick={handleSearch} className="nav-search-input-button">
+                <i className="icon search-icon">&nbsp;</i>
+              </button>
+            </form>
             <span
               className="category-item nav-item"
               onMouseEnter={handleMouseEnter}
@@ -104,9 +113,6 @@ const Header = () => {
               </div>
             </section>
           </div>
-          {/* <section className='nav-search-dropdown'>
-            <div></div>
-          </section> */}
         </div>
       </header>
     </>
