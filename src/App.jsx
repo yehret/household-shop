@@ -13,6 +13,7 @@ import NoMatch from './pages/NoMatch';
 import UserOrders from './pages/UserOrders';
 import DropshipApplication from './pages/DropshipApplication';
 import DropshipUsers from './pages/DropshipUsers';
+import ProductList from './pages/ProductList';
 import ModalRoot from './components/ModalRoot';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -54,6 +55,7 @@ function App() {
           <Route path="add-category" element={<AddCategory />} />
           <Route path="dropship-program" element={<DropshipApplication />} />
           <Route path="dropshippers" element={<DropshipUsers />} />
+          <Route path="product-list" element={<ProductList />} />
         </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>

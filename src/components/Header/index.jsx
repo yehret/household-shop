@@ -62,9 +62,12 @@ const Header = () => {
       <header className="header">
         <div>
           <div className="header-content">
-            <div className="header-logo">
-              <Link to={'/'}>Лого</Link>
-            </div>
+            <Link
+              to={'/'}
+              title="NovikHim - магазин побутових товарів — повернутись на головну"
+              className="header-logo">
+              NovikHim
+            </Link>
             <div className="header-menu">
               <div className="header-links">
                 <Link className="link-item">Контакти</Link>

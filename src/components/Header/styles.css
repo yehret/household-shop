@@ -16,7 +16,16 @@
 }
 
 .header-logo {
-   line-height: 25px;
+   line-height: 32px;
+   background-image: url('/images/logo-gray.png');
+   background-repeat: no-repeat;
+   background-size: contain;
+   background-position: unset;
+   height: 32px;
+   overflow: hidden;
+   text-indent: -9999px;
+   width: 165px;
+
 }
 
 .header-links {

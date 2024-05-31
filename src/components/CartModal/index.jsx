@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import axios from '../../utils/axios';
 import { clearCart } from '../../redux/cartSlice';
+import { useMask } from '@react-input/mask';
 
 const CartModal = ({ setIsOpen, isOpen }) => {
   const { orderStack } = useSelector((state) => state.cart);
@@ -15,6 +16,11 @@ const CartModal = ({ setIsOpen, isOpen }) => {
   const [clientMiddlename, setClientMiddlename] = useState(currentUser?.middlename || '');
   const [clientNumber, setClientNumber] = useState(currentUser?.phoneNumber || '');
   const dispatch = useDispatch();
+
+  const inputRef = useMask({
+    mask: '38__________',
+    replacement: { _: /\d/ },
+  });
 
   const countTotalPrice = (orderStack) => {
     let totalPrice = 0;
@@ -98,8 +104,10 @@ const CartModal = ({ setIsOpen, isOpen }) => {
                           <label htmlFor="Phone">Номер телефону</label>
                           <input
                             id="Phone"
+                            ref={inputRef}
                             value={clientNumber}
                             onChange={(e) => setClientNumber(e.target.value)}
+                            placeholder="38"
                             type="phone"
                             name="Phone"
                           />

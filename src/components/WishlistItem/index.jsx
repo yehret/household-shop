@@ -5,15 +5,14 @@ const WishlistItem = ({ favourite }) => {
     <div className="wishlist-item__wrapper">
       <div className="wishlist-item__image">
         <Link>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFOwoZC8odFjjm05aX6sQ4WWOst-j_WKS-XTpz701VwA&s"
-            alt="product title"
-          />
+          <img height={200} width={200} src={favourite.imageURL} alt="product title" />
         </Link>
       </div>
       <div className="wishlist-item__details">
-        <Link className="wishlist-item__title">Назва бренду - {favourite.name}</Link>
-        <strong className="wishlist-item__pricetag">Ціна: ${favourite.price}</strong>
+        <Link className="wishlist-item__title">
+          {favourite.brandname} - {favourite.name}
+        </Link>
+        <strong className="wishlist-item__pricetag">Ціна: ₴{favourite.price}</strong>
         <div className="wishlist-item__date"></div>
         <div className="wishlist-item__buttons-wrapper">
           <button className="btn-green">Додати у кошик</button>

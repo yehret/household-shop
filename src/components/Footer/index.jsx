@@ -6,7 +6,7 @@ const Footer = () => {
       <div>
         <div className="container">
           <div className="follow">
-            <div className="follow-title">Слідкуй за нами у соц.мережах</div>
+            <div className="follow-title">Слідкуй за нами у соціальних мережах</div>
             <div className="follow-links-wrapper">
               <span className="icon facebook-icon"></span>
               <span className="icon instagram-icon"></span>
@@ -14,7 +14,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="container">
-          <div className="copyrights">© Household - Інтернет-магазин.</div>
+          <div className="copyrights">© NovikHim — Інтернет-магазин</div>
         </div>
       </div>
     </footer>

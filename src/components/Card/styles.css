@@ -14,6 +14,7 @@
 
 .item-card_img img {
    position: absolute;
+   mix-blend-mode: multiply;
    left: 0;
    top: 0;
    width: 100%;
@@ -54,10 +55,11 @@
 }
 
 .item-card_brand-item {
+   display: block;
    margin-top: 2px;
-   overflow: hidden;
    text-overflow: ellipsis;
-   white-space: nowrap;
+   overflow: hidden;
+   /* white-space: nowrap; */
    width: 100%;
 }
 

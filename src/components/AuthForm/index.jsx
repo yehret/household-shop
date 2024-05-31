@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice';
 import axios from '../../utils/axios';
 import { useNavigate } from 'react-router-dom';
+import { useMask } from '@react-input/mask';
 
 const AuthForm = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -106,9 +107,14 @@ const RegisterForm = ({ setIsRegister }) => {
   const [surname, setSurname] = useState('');
   const [middlename, setMiddlename] = useState('');
   const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('+38');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('123');
   const [showPassword, setShowPassword] = useState(false);
+
+  const inputRef = useMask({
+    mask: '38__________',
+    replacement: { _: /\d/ },
+  });
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -180,8 +186,10 @@ const RegisterForm = ({ setIsRegister }) => {
               <div className="form-list__item">
                 <label htmlFor="Phone">Номер телефону</label>
                 <input
+                  ref={inputRef}
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
+                  placeholder="38"
                   type="tel"
                   name="Phone"
                 />
