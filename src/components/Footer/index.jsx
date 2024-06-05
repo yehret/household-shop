@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Footer = () => {
@@ -8,8 +9,14 @@ const Footer = () => {
           <div className="follow">
             <div className="follow-title">Слідкуй за нами у соціальних мережах</div>
             <div className="follow-links-wrapper">
-              <span className="icon facebook-icon"></span>
-              <span className="icon instagram-icon"></span>
+              <Link
+                to={'https://www.facebook.com/Babynewvol'}
+                target="blank"
+                className="icon facebook-icon"></Link>
+              <Link
+                to={'https://www.instagram.com/babynewvol?utm_source=qr&igsh=NXY5MDd2Nnh4YXdo'}
+                target="blank"
+                className="icon instagram-icon"></Link>
             </div>
           </div>
         </div>
