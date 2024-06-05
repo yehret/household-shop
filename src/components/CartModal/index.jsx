@@ -73,8 +73,13 @@ const CartModal = ({ setIsOpen, isOpen }) => {
       <section className="cart-modal__full-screen">
         <div>
           <div>
-            <div onClick={() => setIsOpen(!isOpen)} className="cart-modal__header">
-              Лого
+            <div onClick={() => setIsOpen(!isOpen)} className="header-content cart-modal__header">
+              <Link
+                to={'/'}
+                title="NovikHim - магазин побутових товарів — повернутись на головну"
+                className="header-logo">
+                NovikHim
+              </Link>
             </div>
             <div onClick={() => setIsOpen(!isOpen)} className="cart-modal__back-button">
               <i className="icon icon-return"></i>

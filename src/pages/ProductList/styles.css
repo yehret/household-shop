@@ -1,6 +1,8 @@
 
 
 .productlist-item__wrapper {
+   position: relative;
+
    display: flex;
    padding: 1rem;
    border: 1px solid #c9c8c7;
@@ -36,4 +38,37 @@
 
 .productlist-item__pricetag {
    font-weight: 400;
+}
+
+.productlist-item__actions {
+   position: absolute;
+   right: 0;
+   margin-right: 1rem;
+}
+
+.productlist-item__actions button {
+   margin-left: .25rem;
+   border: none;
+   background-color: #fff;
+   padding: 5px;
+   border-radius: 5px;
+}
+
+.productlist-item__actions button:hover {
+   background-color: #eaeaea;
+   transition: .2s all ease-in-out;
+}
+
+.productlist-item__actions .icon {
+   color: #333;
+   height: 22px;
+   width: 22px;
+}
+
+.icon-edit {
+   background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDgwIDgwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgODAgODAiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjx0aXRsZS8+PGcgaWQ9IkxheWVyXzIiPjxnIGlkPSJMYXllcl8zIj48cG9seWdvbiBwb2ludHM9IjYxLjgsNzEuOCA4LjQsNzEuOCA4LjQsMTguNCAzNS4xLDE4LjQgMzUuMSwxNS40IDUuNCwxNS40IDUuNCw3NC44IDY0LjgsNzQuOCA2NC44LDQxLjUgNjEuOCw0MS41ICAgIi8+PHBhdGggZD0iTTIyLjYsNDYuMmwtMi4xLDEzLjFsMTMuMS0yLjFsMS4zLTEuNGwwLDBsMzkuOC0zOS43TDYzLjcsNS4yTDI0LDQ0LjlMMjIuNiw0Ni4yeiBNMjUuMyw0OC4zbDYuMSw2LjJMMjQsNTUuN0wyNS4zLDQ4LjN6ICAgICBNNzAuNCwxNi4xbC0zLjksNGwtNi42LTYuN2w0LTMuOUw3MC40LDE2LjF6IE01Ny43LDE1LjVsNi43LDYuN0wzMy44LDUyLjdMMjcuMiw0Nkw1Ny43LDE1LjV6Ii8+PC9nPjwvZz48L3N2Zz4=')
+}
+
+.icon-delete {
+   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQ4IDQ4IiBoZWlnaHQ9IjQ4cHgiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDhweCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGcgaWQ9IkV4cGFuZGVkIj48Zz48Zz48cGF0aCBkPSJNNDEsNDhIN1Y3aDM0VjQ4eiBNOSw0NmgzMFY5SDlWNDZ6Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0zNSw5SDEzVjFoMjJWOXogTTE1LDdoMThWM0gxNVY3eiIvPjwvZz48Zz48cGF0aCBkPSJNMTYsNDFjLTAuNTUzLDAtMS0wLjQ0Ny0xLTFWMTVjMC0wLjU1MywwLjQ0Ny0xLDEtMXMxLDAuNDQ3LDEsMXYyNUMxNyw0MC41NTMsMTYuNTUzLDQxLDE2LDQxeiIvPjwvZz48Zz48cGF0aCBkPSJNMjQsNDFjLTAuNTUzLDAtMS0wLjQ0Ny0xLTFWMTVjMC0wLjU1MywwLjQ0Ny0xLDEtMXMxLDAuNDQ3LDEsMXYyNUMyNSw0MC41NTMsMjQuNTUzLDQxLDI0LDQxeiIvPjwvZz48Zz48cGF0aCBkPSJNMzIsNDFjLTAuNTUzLDAtMS0wLjQ0Ny0xLTFWMTVjMC0wLjU1MywwLjQ0Ny0xLDEtMXMxLDAuNDQ3LDEsMXYyNUMzMyw0MC41NTMsMzIuNTUzLDQxLDMyLDQxeiIvPjwvZz48Zz48cmVjdCBoZWlnaHQ9IjIiIHdpZHRoPSI0OCIgeT0iNyIvPjwvZz48L2c+PC9nPjwvc3ZnPg==)
 }

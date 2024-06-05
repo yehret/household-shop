@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NotFound from '../../components/NotFound';
 import ContentLoader from 'react-content-loader';
-import { capitalizeFirstLetter } from '../../utils/capitalizeFirstLetter';
 import Card from '../../components/Card';
 import { fetchStart, fetchSuccess } from '../../redux/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,13 +15,11 @@ const Search = () => {
   const query = useLocation().search;
 
   useEffect(() => {
-    console.log(query);
     const fetchProducts = async () => {
       dispatch(fetchStart());
       setIsError(false);
       try {
         const res = await axios.get(`products/search${query}`);
-        console.log(res);
         dispatch(fetchSuccess(res.data));
       } catch (error) {
         console.log(error.message);

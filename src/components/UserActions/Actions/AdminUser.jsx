@@ -24,6 +24,12 @@ const AdminUser = ({ handleLogout }) => {
       <div>
         <div className="account-section">
           <h2 className="account-section__header">Адмін-панель</h2>
+          <Link to={'/customer-area/product-list'} className="account-section__link">
+            <div>Список товарів</div>
+            <div className="account-section-arrow">
+              <span className="icon icon-arrow"></span>
+            </div>
+          </Link>
           <Link to="all-orders" className="account-section__link">
             <div>Замовлення</div>
             <div className="account-section-arrow">

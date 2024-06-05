@@ -127,8 +127,8 @@ select {
 
 .registration-block, .addimage-block {
    margin-top: 1rem;
-   /* padding-left: 2.5rem; */
-   /* width: 50%; */
+   padding-left: 2.5rem;
+   width: 50%;
 }
 
 .addimage-block {

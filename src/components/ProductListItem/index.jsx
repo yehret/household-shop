@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ProductListItem = ({ item }) => {
+const ProductListItem = ({ item, status }) => {
   return (
     <div className="productlist-item__wrapper">
       <div className="productlist-item__image">
@@ -15,6 +15,16 @@ const ProductListItem = ({ item }) => {
         </Link>
       </div>
       <div className="productlist-item__details">
+        {status && (
+          <div className="productlist-item__actions">
+            <button className="delete-button">
+              <span className="icon icon-edit"></span>
+            </button>
+            <button className="edit-button">
+              <span className="icon icon-delete"></span>
+            </button>
+          </div>
+        )}
         <Link className="productlist-item__title">
           <strong>{item.brandname}</strong> — {item.name}
         </Link>
