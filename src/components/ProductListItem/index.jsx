@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ProductListItem = ({ item, status }) => {
+const ProductListItem = ({ item, status, handleOpenEditModal, handleOpenDeleteModal }) => {
   return (
     <div className="productlist-item__wrapper">
       <div className="productlist-item__image">
@@ -17,10 +17,10 @@ const ProductListItem = ({ item, status }) => {
       <div className="productlist-item__details">
         {status && (
           <div className="productlist-item__actions">
-            <button className="delete-button">
+            <button onClick={() => handleOpenEditModal(item)} className="edit-button">
               <span className="icon icon-edit"></span>
             </button>
-            <button className="edit-button">
+            <button onClick={() => handleOpenDeleteModal(item._id)} className="delete-button">
               <span className="icon icon-delete"></span>
             </button>
           </div>
