@@ -38,6 +38,8 @@ const ProductList = () => {
   const handleUpdateProduct = async (itemId, updateData) => {
     try {
       await axios.put(`products/${itemId}`, updateData);
+      setEditModalData({});
+      setOpenEditModal(false);
     } catch (error) {
       console.log(error);
     }
@@ -46,6 +48,8 @@ const ProductList = () => {
   const handleDeleteProduct = async () => {
     try {
       await axios.delete(`products/${itemId}`);
+      setItemId(null);
+      setOpenDeleteModal(false);
     } catch (error) {
       console.log(error);
     }
