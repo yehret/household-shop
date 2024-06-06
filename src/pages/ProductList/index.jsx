@@ -35,10 +35,20 @@ const ProductList = () => {
     setOpenDeleteModal(true);
   };
 
-  const handleUpdateProduct = async () => {};
+  const handleUpdateProduct = async (itemId, updateData) => {
+    try {
+      await axios.put(`products/${itemId}`, updateData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleDeleteProduct = async () => {
-    console.log(itemId);
+    try {
+      await axios.delete(`products/${itemId}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -78,12 +88,14 @@ const ProductList = () => {
   );
 };
 
-const EditModal = ({ editData, setOpenEditModal }) => {
+const EditModal = ({ editData, setOpenEditModal, handleUpdateProduct }) => {
   const [name, setName] = useState(editData.name);
   const [brandname, setBrandname] = useState(editData.brandname);
   const [price, setPrice] = useState(editData.price);
   const [description, setDescription] = useState(editData.description);
   const [quantity, setQuantity] = useState(editData.quantity);
+
+  const editFields = { name, brandname, description, quantity, price };
 
   return (
     <>
@@ -148,7 +160,11 @@ const EditModal = ({ editData, setOpenEditModal }) => {
               </div>
             </div>
           </form>
-          <button className="addproduct">Підтвердити</button>
+          <button
+            onClick={() => handleUpdateProduct(editData._id, editFields)}
+            className="addproduct">
+            Підтвердити
+          </button>
         </div>
       </section>
     </>
