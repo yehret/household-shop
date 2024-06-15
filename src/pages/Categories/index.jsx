@@ -29,13 +29,8 @@ const Categories = () => {
 
   const skeletons = [...new Array(4)].map((_, index) => <CategoryCardLoader key={index} />);
   const categoriesItems = categories.map((category) => {
-    const capitalizedName = category.name.charAt(0).toUpperCase() + category.name.slice(1);
     return (
-      <CategoryCard
-        key={category._id}
-        categoryName={capitalizedName}
-        categoryImg={category.imgURL}
-      />
+      <CategoryCard key={category._id} categoryName={category.name} categoryImg={category.imgURL} />
     );
   });
 
