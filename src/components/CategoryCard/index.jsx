@@ -7,7 +7,7 @@ const CategoryCard = ({ categoryName, categoryImg }) => {
   return (
     <div className="card">
       <Link
-        to={`/${cyrillicToTranslitWithDash(categoryName.toLowerCase())}`}
+        to={`categories/${cyrillicToTranslitWithDash(categoryName.toLowerCase())}`}
         state={{ categoryName }}
         title={categoryName}>
         <img
