@@ -1,15 +1,13 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './styles.css';
-import cyrillicToTranslit from 'cyrillic-to-translit-js';
+import cyrillicToTranslitWithDash from '../../utils/cyrillicToTranslitWithDash';
 
 const CategoryCard = ({ categoryName, categoryImg }) => {
-  const path = categoryName.toLowerCase();
-
   return (
     <div className="card">
       <Link
-        to={`categories/${cyrillicToTranslit({ preset: 'uk' }).transform(path)}`}
+        to={`categories/${cyrillicToTranslitWithDash(categoryName)}`}
         state={{ categoryName }}
         title={categoryName}>
         <img
