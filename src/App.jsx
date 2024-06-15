@@ -46,11 +46,9 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/categories">
-          <Route index element={<Categories />} />
-          <Route path="/categories/:categoryname" element={<Category />} />
-          <Route path="/categories/:categoryname/:productId" element={<Product />} />
-        </Route>
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:categoryname" element={<Category />} />
+        <Route path="/categories/:categoryname/:productId" element={<Product />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/search" element={<Search />} />
         <Route path="customer-area">
