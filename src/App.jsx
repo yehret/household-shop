@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Home from './pages/Home';
+import Categories from './pages/Categories';
 import Category from './pages/Category';
 import Product from './pages/Product';
 import Footer from './components/Footer';
@@ -20,6 +20,7 @@ import { useEffect } from 'react';
 import axios from './utils/axios';
 import { loginSuccess } from './redux/userSlice';
 import Search from './pages/Search';
+import Home from './pages/Home';
 
 function App() {
   const { currentUser } = useSelector((state) => state.user);
@@ -45,8 +46,11 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/categories/:categoryname" element={<Category />} />
-        <Route path="/categories/:categoryname/:productId" element={<Product />} />
+        <Route path="/categories">
+          <Route index element={<Categories />} />
+          <Route path="/categories/:categoryname" element={<Category />} />
+          <Route path="/categories/:categoryname/:productId" element={<Product />} />
+        </Route>
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/search" element={<Search />} />
         <Route path="customer-area">

@@ -1,12 +1,81 @@
-.title {
-   margin: 45px 0;
-   font-size: 25px;
+#heroBannerPlacholder {
+   margin-top: 1rem;
 }
 
-.category-cards-wrapper {
-   display: grid; 
-   grid-template-columns: repeat(2, 1fr);
-   grid-auto-rows: 420px;
-   
-   gap: 20px;
+.heroBanner {
+   height: 500px;
+   background-image: url('https://wellamart.ua/content/images/40/chysto-do-blysku-pobutova-khimiia-dlia-riznykh-tsilei-65126068822626.jpg');
+   background-position: -100px;
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+}
+
+.overlay-box {
+   padding: 64px;
+   background-color: rgba(51,51,51,.8);
+   color: #fff;
+   width: 400px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.overlay-right {
+   left: auto;
+   right: 48px;
+}
+
+.overlay-vertical {
+   bottom: unset;
+   height: 100%;
+   width: auto;
+   max-width: 440px;
+   top: 0;
+   position: absolute;
+   text-align: center;
+   z-index: 1;
+}
+
+.overlay-box-content {
+   display: block;
+   position: relative;
+   /* top: 50%; */
+}
+
+.overlay-box__title {
+   font-size: 36px;
+   font-weight: 300;
+   margin-bottom: 8px;
+}
+
+.overlay-box__text {
+   color: inherit;
+   font-size: 1em;
+   margin: 0 0 5px;
+}
+
+.overlay-box__button {
+   margin: 1rem auto 0;
+   max-width: 350px;
+   min-width: 290px;
+}
+
+.cta-button {
+   background: #41a561;
+   border-color: #41a561;
+   color: #fff;
+   height: 45px;
+   padding: 0 48px;
+   /* border: 1px solid; */
+   border-radius: 2px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: 64ms ease-in-out;
+}
+
+.cta-button:hover {
+   background: #33814c;
+   border-color: #33814c;
 }
