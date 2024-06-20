@@ -60,7 +60,7 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/search?q=${q}`);
+    q.length > 2 ? navigate(`/search?q=${q}`) : '';
   };
 
   return (
@@ -95,7 +95,12 @@ const Header = () => {
           </div>
           <div className="header-nav">
             <form className="nav-search-module-input">
-              <input onChange={(e) => setQ(e.target.value)} placeholder="Пошук..." type="text" />
+              <input
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="Пошук..."
+                type="text"
+                minLength={3}
+              />
               <button onClick={handleSearch} className="nav-search-input-button">
                 <i className="icon search-icon">&nbsp;</i>
               </button>

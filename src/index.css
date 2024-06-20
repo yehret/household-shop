@@ -57,3 +57,16 @@ footer>div {
    justify-content: center;
    align-items: center;
 }
+
+.feature-disabled {
+   color: gray;
+   cursor: not-allowed;
+}
+
+.card-disabled, .card-disabled>* {
+   cursor: not-allowed;
+}
+
+.card-disabled:hover {
+   background-color: rgb(224, 224, 224);
+}

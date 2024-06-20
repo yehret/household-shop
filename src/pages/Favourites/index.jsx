@@ -3,9 +3,13 @@ import './styles.css';
 import WishlistItem from '../../components/WishlistItem';
 import { useEffect, useState } from 'react';
 import axios from '../../utils/axios';
+import { useDispatch } from 'react-redux';
+import addToCart from '../../redux/cartSlice';
+import { favourite } from '../../redux/userSlice';
 
 const Favourites = () => {
   const [favourites, setFavourites] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchFavourites = async () => {
@@ -21,6 +25,16 @@ const Favourites = () => {
     fetchFavourites();
   }, []);
 
+  const handleRemoveFromFavourites = async (id) => {
+    try {
+      await axios.put(`users/removefromfavourites/${id}`, null);
+      dispatch(favourite(favourite._id));
+      setFavourites((prevFavourites) => prevFavourites.filter((fav) => fav._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <section>
       <div>
@@ -29,7 +43,11 @@ const Favourites = () => {
           {favourites.length > 0 ? (
             <div>
               {favourites.map((favItem) => (
-                <WishlistItem key={favItem._id} favourite={favItem} />
+                <WishlistItem
+                  key={favItem._id}
+                  favourite={favItem}
+                  handleRemoveFromFavourites={handleRemoveFromFavourites}
+                />
               ))}
             </div>
           ) : (

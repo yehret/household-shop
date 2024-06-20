@@ -35,12 +35,16 @@ const Search = () => {
     return <Card key={card._id} card={card} />;
   });
 
+  //   {query != '?q='
+  //    ? `Результати пошуку "${decodeURI(query.replace('?q=', ''))}"`
+  //    : 'Повний каталог товарів'}
+
   return (
     <section>
       <div>
         <h1 className="title">Результати пошуку {`"${decodeURI(query.replace('?q=', ''))}"`}</h1>
       </div>
-      {isError || (
+      {isError && (
         <div className="sort-section_head">
           <div className="sort-section">
             <div className="sort-title">Сортувати за: </div>
@@ -51,7 +55,7 @@ const Search = () => {
           </div>
         </div>
       )}
-      {isError ? (
+      {isError || !products.length ? (
         <NotFound type={'products'} />
       ) : (
         <div className="cards-wrapper">{loading ? skeletons : productsItems}</div>

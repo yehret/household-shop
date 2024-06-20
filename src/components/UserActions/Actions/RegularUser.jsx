@@ -17,7 +17,7 @@ const RegularUser = ({ handleLogout }) => {
               <span className="icon icon-arrow"></span>
             </div>
           </Link>
-          <Link className="account-section__link">
+          <Link className="account-section__link feature-disabled">
             <div>Відгуки</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
@@ -59,7 +59,7 @@ const RegularUser = ({ handleLogout }) => {
               </div>
             </Link>
           )}
-          <Link className="account-section__link">
+          <Link className="account-section__link feature-disabled">
             <div>Видалити акаунт</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>

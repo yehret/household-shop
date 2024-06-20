@@ -108,7 +108,7 @@ const RegisterForm = ({ setIsRegister }) => {
   const [middlename, setMiddlename] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [password, setPassword] = useState('123');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
   const inputRef = useMask({
