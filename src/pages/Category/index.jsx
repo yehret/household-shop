@@ -46,12 +46,12 @@ const Category = () => {
         <h1 className="title">{capitalizeFirstLetter(categoryName)}</h1>
       </div>
       {isError || (
-        <div className="sort-section_head">
+        <div className="sort-section_head feature-disabled">
           <div className="sort-section">
             <div className="sort-title">Сортувати за: </div>
-            <div className="sort-button-wrapper">
+            <div className="sort-button-wrapper feature-disabled">
               <span className="sb-title">Ціна</span>
-              <span className="icon sb_icon sb_icon_img"></span>
+              {/* <span className="icon sb_icon sb_icon_img "></span> */}
             </div>
           </div>
         </div>
