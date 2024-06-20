@@ -38,6 +38,8 @@ const Category = () => {
     return <Card key={card._id} card={card} />;
   });
 
+  //   const handleSort = async () => {};
+
   return (
     <section>
       <div>

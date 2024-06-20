@@ -234,9 +234,10 @@ select {
 }
 
 .img-preview {
-   border: 1px solid #c9c8c7;
+   margin-bottom: 1rem;
+   /* border: 1px solid #c9c8c7;
    width: 700px;
-   height: 700px;
+   height: 700px; */
 
    background-repeat: no-repeat;
    object-fit: contain;

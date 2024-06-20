@@ -18,11 +18,11 @@ const AddProduct = () => {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState('');
   const [img, setImg] = useState(undefined);
-  const [imageURL, setImgURL] = useState('');
+  const [imgURL, setImgURL] = useState('');
   const [imgPerc, setImgPerc] = useState(0);
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const [crop, setCrop] = useState();
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -127,7 +127,7 @@ const AddProduct = () => {
       await axios.post(`products`, {
         name,
         brandname,
-        imageURL,
+        imgURL,
         price,
         quantity,
         description,
@@ -247,84 +247,24 @@ const AddProduct = () => {
                   Додати товар
                 </button>
               </div>
-              <div className="addimage-button">
-                <button onClick={() => setOpenModal(true)} className="addimage">
-                  Завантажити зображення
-                </button>
+              <div className="addimage-block">
+                <h3>Додати зображення товару</h3>
+                {imgPerc > 0 && imgPerc != 100
+                  ? 'Uploading:' + imgPerc + '%'
+                  : !imgURL && (
+                      <input
+                        className="addimage"
+                        onChange={(e) => setImg(e.target.files[0])}
+                        type="file"
+                        accept="image/*"></input>
+                    )}
+                {imgURL ? <img className="img-preview" src={imgURL} alt="category pic" /> : <></>}
+                {imgURL && (
+                  <button className="addproduct" onClick={clearImgFields}>
+                    Очистити
+                  </button>
+                )}
               </div>
-              {openModal && (
-                <>
-                  <div className="modal__backdrop"></div>
-                  <section className="addimage-modal">
-                    <div
-                      onClick={handleCloseModal}
-                      className="modal__close-button icon-close"></div>
-                    <h2>Завантажити зображення</h2>
-                    <div className="addimage-block">
-                      {error && <p className="image-error">{error}</p>}
-                      {imgPerc > 0 && imgPerc != 100
-                        ? 'Uploading:' + imgPerc + '%'
-                        : !imageURL && (
-                            <input
-                              className="addimage"
-                              onChange={(e) => setImg(e.target.files[0])}
-                              type="file"
-                              accept="image/*"></input>
-                          )}
-                      {imageURL && (
-                        <>
-                          <ReactCrop
-                            onChange={(percentCrop) => setCrop(percentCrop)}
-                            crop={crop}
-                            keepSelection
-                            aspect={1}
-                            minHeight={227}>
-                            <img
-                              ref={imgRef}
-                              className="img-preview"
-                              src={imageURL}
-                              alt="Upload"
-                              onLoad={onImageLoad}
-                            />
-                          </ReactCrop>
-                          {crop && (
-                            <canvas
-                              ref={previewCanvasRef}
-                              style={{
-                                //   display: 'none',
-                                border: '1px solid black',
-                                objectFit: 'contain',
-                                width: 227,
-                                height: 227,
-                              }}
-                            />
-                          )}
-                          <div className="addimage-buttons">
-                            <button
-                              onClick={() => {
-                                setCanvasPreview(
-                                  imgRef.current,
-                                  previewCanvasRef.current,
-                                  convertToPixelCrop(
-                                    crop,
-                                    imgRef.current.width,
-                                    imgRef.current.height,
-                                  ),
-                                );
-                              }}
-                              className="addproduct clearbutton">
-                              Завантажити
-                            </button>
-                            <button className="addproduct clearbutton" onClick={clearImgFields}>
-                              Очистити
-                            </button>
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </section>
-                </>
-              )}
             </div>
           </div>
         </div>

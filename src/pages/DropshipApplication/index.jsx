@@ -127,6 +127,7 @@ const DropshipApplication = () => {
                       onChange={(e) => setMailIndex(e.target.value)}
                       type="text"
                       name="MailIndex"
+                      maxLength={5}
                     />
                   </div>
                 </div>
@@ -160,7 +161,7 @@ const DropshipApplication = () => {
                   />
                 </div>
                 <div className="form-list__item">
-                  <label htmlFor="Address">Адрес</label>
+                  <label htmlFor="Address">Адреса</label>
                   <input
                     placeholder="напр. вул.Шевченка, буд.3, кв.10"
                     value={address}
@@ -202,6 +203,7 @@ const DropshipApplication = () => {
                     onChange={(e) => setIban(e.target.value)}
                     type="text"
                     name="IBAN"
+                    maxLength={29}
                   />
                 </div>
                 <div className="form-list__item">
