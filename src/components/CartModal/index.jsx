@@ -15,6 +15,7 @@ const CartModal = ({ setIsOpen, isOpen }) => {
   const [clientLastname, setClientLastname] = useState(currentUser?.surname || '');
   const [clientMiddlename, setClientMiddlename] = useState(currentUser?.middlename || '');
   const [clientNumber, setClientNumber] = useState(currentUser?.phoneNumber || '');
+  const [showThanks, setShowThanks] = useState(false);
   const dispatch = useDispatch();
 
   const inputRef = useMask({
@@ -63,9 +64,15 @@ const CartModal = ({ setIsOpen, isOpen }) => {
 
       await axios.post('orders', orderData);
       dispatch(clearCart());
+      setShowThanks(true);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleClose = () => {
+    setIsOpen(!isOpen);
+    setShowThanks(false);
   };
 
   return (
@@ -81,7 +88,7 @@ const CartModal = ({ setIsOpen, isOpen }) => {
                 NovikHim
               </Link>
             </div>
-            <div onClick={() => setIsOpen(!isOpen)} className="cart-modal__back-button">
+            <div onClick={handleClose} className="cart-modal__back-button">
               <i className="icon icon-return"></i>
               <span>Повернутись назад</span>
             </div>
@@ -167,8 +174,10 @@ const CartModal = ({ setIsOpen, isOpen }) => {
                 </div>
               </div>
             </>
+          ) : showThanks ? (
+            <ThankForOrder handleClose={handleClose} />
           ) : (
-            <EmptyCart setIsOpen={setIsOpen} isOpen={isOpen} />
+            <EmptyCart handleClose={handleClose} />
           )}
         </div>
         <Footer />
@@ -177,14 +186,30 @@ const CartModal = ({ setIsOpen, isOpen }) => {
   );
 };
 
-const EmptyCart = ({ setIsOpen, isOpen }) => {
+const EmptyCart = ({ handleClose }) => {
   return (
     <div className="cart-modal__wrapper">
       <div className="cart-modal__product-list">
         <div className="cart-modal__empty-cart">
           <p>Ваш кошик порожній.</p>
           <p>Ніколи не пізно це виправити :)</p>
-          <Link to={'/'} onClick={() => setIsOpen(!isOpen)} className="cart-button">
+          <Link to={'/'} onClick={handleClose} className="cart-button">
+            Переглянути каталог товарів
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ThankForOrder = ({ handleClose }) => {
+  return (
+    <div className="cart-modal__wrapper">
+      <div className="cart-modal__product-list">
+        <div className="cart-modal__empty-cart">
+          <p>Дякуємо за замовлення.</p>
+          <p>Очікуйте на дзвінок для уточнення даних :)</p>
+          <Link to={'/'} onClick={handleClose} className="cart-button">
             Переглянути каталог товарів
           </Link>
         </div>

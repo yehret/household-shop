@@ -34,7 +34,7 @@ const RegularUser = ({ handleLogout }) => {
         </div>
         <div className="account-section">
           <h2 className="account-section__header">Ваші дані</h2>
-          <Link className="account-section__link">
+          <Link className="account-section__link feature-disabled">
             <div>Особисті дані</div>
             <div className="account-section-arrow">
               <span className="icon icon-arrow"></span>
