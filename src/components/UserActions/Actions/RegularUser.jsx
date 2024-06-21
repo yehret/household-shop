@@ -52,7 +52,9 @@ const RegularUser = ({ handleLogout }) => {
             </Link>
           )}
           {currentUser.dropshipperInfo.status && (
-            <Link onClick={handleCancelDropshipping} className="account-section__link">
+            <Link
+              onClick={handleCancelDropshipping}
+              className="account-section__link feature-disabled">
               <div>Відмінити дропшипінг партнерство</div>
               <div className="account-section-arrow">
                 <span className="icon icon-arrow"></span>

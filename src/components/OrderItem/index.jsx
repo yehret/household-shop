@@ -60,9 +60,7 @@ const OrderItem = ({ itemData, isAccess }) => {
           <span>Номер замовлення: {itemData.orderId}</span>
         </div>
         <div className="account-section__order-date">
-          <span>
-            Дата оформлення: {formattedDate} {formattedTime}
-          </span>
+          <span>Дата оформлення: {formattedDate}</span>
         </div>
         <div className="account-section__order-status">
           <div className="order-status">

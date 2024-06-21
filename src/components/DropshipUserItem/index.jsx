@@ -24,11 +24,19 @@ const DropshipUserItem = ({ user }) => {
     }
   };
 
+  const [datePart, timePart] = user.updatedAt.split('T');
+
+  const [year, month, day] = datePart.split('-');
+  const formattedDate = `${day}.${month}.${year}`;
+
+  const [hour, minute] = timePart.split(':');
+  const formattedTime = `${hour}:${minute}`;
+
   return (
     <div className="account-section__item">
       <div className="account-section__order-data">
         <div className="account-section__order-date">
-          <span>Дата заяви:</span>
+          <span>Дата заяви: {formattedDate}</span>
         </div>
         <div className="account-section__order-status">
           <div className="order-status">
