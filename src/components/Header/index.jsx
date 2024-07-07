@@ -110,7 +110,7 @@ const Header = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}>
               <span className="icon icon-categories"></span>
-              <Link to={'categories'}>Меню</Link>
+              <Link to={'categories'}>Категорії</Link>
             </span>
             <section
               onMouseEnter={handleMouseEnter}
