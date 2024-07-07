@@ -77,7 +77,7 @@ const Header = () => {
             </Link>
             <div className="header-menu">
               <div className="header-links">
-                <Link className="link-item">Контакти</Link>
+                <Link className="link-item">Home</Link>
               </div>
               <div className="header-function">
                 <Link to="/customer-area" className="header-account icon icon-link account-icon">
